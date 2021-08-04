@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/MCServerHelper">
+        <file alias="Cat">RES/Cat.png</file>
+    </qresource>
+</RCC>
