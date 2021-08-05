@@ -88,12 +88,16 @@
     <QtRcc Include="mcserverhelper.qrc" />
     <QtUic Include="mcserverhelper.ui" />
     <QtMoc Include="mcserverhelper.h" />
+    <ClCompile Include="iniedit.cpp" />
     <ClCompile Include="mcserverhelper.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtTranslation Include="mcserverhelper_en.ts" />
     <QtTranslation Include="mcserverhelper_zh.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="iniedit.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

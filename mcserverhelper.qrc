@@ -1,5 +1,10 @@
 <RCC>
     <qresource prefix="/MCServerHelper">
         <file alias="Cat">RES/Cat.png</file>
+        <file>RES/MCSH.ico</file>
+    </qresource>
+    <qresource prefix="/language">
+        <file>mcserverhelper_zh.qm</file>
+        <file>mcserverhelper_en.qm</file>
     </qresource>
 </RCC>
