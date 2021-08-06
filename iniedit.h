@@ -7,6 +7,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "appinfo.h"
 using namespace std;
 
 class iniEdit : public QObject
@@ -28,7 +29,7 @@ public:
 	struct MyINI
 	{
 		bool isLasted = false;
-		int version = 0;
+		int version = VERSIONID;
 		bool isStartWithWindow = false;
 		bool isStartServerOnceStarted = false;
 		bool isStartFrpWithServer = false;

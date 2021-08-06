@@ -5,10 +5,12 @@ MCServerHelper::MCServerHelper(QWidget* parent)
 {
 	ui.setupUi(this);
 	this->setFixedSize(this->width(), this->height());
-	this->setWindowTitle("MCServerHelper By:Brownlzy");
+	this->setWindowTitle(QString("MCServerHelper v") + VERSION + " By:Brownlzy");
 	ie = new iniEdit(this);
 	m_server = new QProcess(this);
 	m_frp = new QProcess(this);
+	pUpdateFrm = new QPropertyAnimation(ui.frmUpdateInfo, "pos", this);
+	pUpdate = new Update(this, ui.DownBar, ui.labAbout, ui.txtUpdateInfo);
 	UpdateSettings();
 	m_server->setWorkingDirectory(qApp->applicationDirPath() + "/Server");
 	m_server->setProcessChannelMode(QProcess::MergedChannels);
@@ -17,6 +19,9 @@ MCServerHelper::MCServerHelper(QWidget* parent)
 	ui.btnServerStop->setEnabled(false);
 	ui.btnFrpStop->setEnabled(false);
 	ui.btnServerInput->setEnabled(false);
+	ui.btnDoUpdate->setEnabled(false);
+	ui.labAbout->setText(QString("Build Time: ") + __TIMESTAMP__);
+	ui.frmUpdateInfo->move(0, 110);
 	connect(m_server, SIGNAL(readyReadStandardOutput()), this, SLOT(onServerOutput()));
 	connect(m_frp, SIGNAL(readyReadStandardOutput()), this, SLOT(onFrpOutput()));
 	connect(ui.btnServerStart, SIGNAL(clicked()), this, SLOT(ServerStart()));
@@ -30,6 +35,9 @@ MCServerHelper::MCServerHelper(QWidget* parent)
 	connect(ui.btnMCSHCancel, SIGNAL(clicked()), this, SLOT(MSCHCancel()));
 	connect(ui.btnServerSCancel, SIGNAL(clicked()), this, SLOT(ServerINICancel()));
 	connect(ui.btnFrpSCancel, SIGNAL(clicked()), this, SLOT(FrpCancel()));
+	connect(ui.tabWidget, SIGNAL(currentChanged(int)), this, SLOT(tabChanged(int)));
+	connect(ui.btnShowUpdateInfo, SIGNAL(clicked()), this, SLOT(ShowUpdateInfo()));
+	connect(ui.btnDoUpdate, SIGNAL(clicked()), this, SLOT(btnDoUpdate()));
 	QTimer::singleShot(1000, this, SLOT(timeTik()));
 	//connect(ui.PathJava, SIGNAL(textChanged(QString)), this, SLOT(MCSHTextChanged(QString)));
 	//connect(ui.PathServer, SIGNAL(textChanged(QString)), this, SLOT(MCSHTextChanged(QString)));
@@ -66,9 +74,9 @@ void MCServerHelper::onServerOutput()
 
 void MCServerHelper::UpdateSettings()
 {
+	ie->ReadMyINI();
 	ie->ReadFrpINI();
 	ie->ReadServerINI();
-	ie->ReadMyINI();
 	ui.chkStartWithWindows->setChecked(ie->myini.isStartWithWindow);
 	ui.chkStartServerOnce->setChecked(ie->myini.isStartServerOnceStarted);
 	ui.chkStartFrpOnce->setChecked(ie->myini.isStartFrpWithServer);
@@ -120,31 +128,19 @@ QString MCServerHelper::ChangeTextColorS(QString oText)
 	for (int i = 0; i <= oText.contains("<br/>"); i++)
 	{
 		colorText += "<span style=\"color:";
-		if (oText.split("<br/>")[i].contains("ERROR"))
+		if (oText.split("<br/>")[i].contains("ERROR") || oText.split("<br/>")[i].contains("错误"))
 			colorText += "red;\">";
-		else if (oText.split("<br/>")[i].split("[")[2].split("]")[0].contains("INFO"))
+		else if (oText.contains("[") && oText.contains("]") && oText.split("<br/>")[i].split("[")[2].split("]")[0].contains("INFO"))
 			colorText += "green;\">";
-		else if (oText.split("<br/>")[i].split("[")[2].split("]")[0].contains("WARN"))
+		else if (oText.contains("[") && oText.contains("]") && oText.split("<br/>")[i].split("[")[2].split("]")[0].contains("WARN"))
 			colorText += "#ff7e00;\">";
-		else if (oText.split("<br/>")[i].split("[")[2].split("]")[0].contains("FATAL"))
+		else if (oText.contains("[") && oText.contains("]") && oText.split("<br/>")[i].split("[")[2].split("]")[0].contains("FATAL"))
 			colorText += "red;\">";
 		else
-			colorText += "black;\">";
+			colorText += "red;\">";
 		colorText += oText.split("<br/>")[i] + "</span>";
 		if (i != oText.contains("<br/>")) colorText += "<br/>";
 	}
-	//colorText = "<span style=\"color:";
-	//if (oText.contains("ERROR"))
-	//	colorText += "red;\">";
-	//else if (oText.split("[")[2].split("]")[0].contains("INFO"))
-	//	colorText += "green;\">";
-	//else if (oText.split("[")[2].split("]")[0].contains("WARN"))
-	//	colorText += "#ff7e00;\">";
-	//else if (oText.split("[")[2].split("]")[0].contains("FATAL"))
-	//	colorText += "red;\">";
-	//else
-	//	colorText += "black;\">";
-	//colorText += oText + "</span>";
 	return colorText;
 }
 
@@ -160,18 +156,28 @@ QString MCServerHelper::ChangeTextColorF(QString oText)
 	for (int i = 0; i <= oText.contains("<br/>"); i++)
 	{
 		colorText += "<span style=\"color:";
-		if (oText.split("<br/>")[i].split("]")[0].split("[")[1] == "E" || oText.split("<br/>")[i].split("]")[0].split("[")[1] == "F")
+		if (oText.contains("[") && oText.contains("]") && (oText.split("<br/>")[i].split("]")[0].split("[")[1] == "E" || oText.split("<br/>")[i].split("]")[0].split("[")[1] == "F"))
 			colorText += "red;\">";
-		else if (oText.split("<br/>")[i].split("]")[0].split("[")[1] == "I")
+		else if (oText.contains("[") && oText.contains("]") && oText.split("<br/>")[i].split("]")[0].split("[")[1] == "I")
 			colorText += "green;\">";
-		else if (oText.split("<br/>")[i].split("]")[0].split("[")[1] == "W")
+		else if (oText.contains("[") && oText.contains("]") && oText.split("<br/>")[i].split("]")[0].split("[")[1] == "W")
 			colorText += "#ff7e00;\">";
 		else
-			colorText += "black;\">";
+			colorText += "red;\">";
 		colorText += oText.split("<br/>")[i] + "</span>";
 		if (i != oText.contains("<br/>")) colorText += "<br/>";
 	}
 	return colorText;
+}
+
+void MCServerHelper::Donate()
+{
+	QLabel* plab = new QLabel("<html><head/><body><p><img src="":/pic/png/pay"" widyh=""191"" height=""191""/></p></body></html>");
+	plab->setFixedSize(191, 191);
+	plab->setWindowIcon(QIcon(":/pic/icon/DinoOL"));
+	plab->setWindowTitle("注意:赞助是无偿自愿行为");
+	plab->setWindowFlags(Qt::WindowCloseButtonHint | Qt::WindowStaysOnTopHint);
+	plab->show();
 }
 
 void MCServerHelper::onFrpOutput()
@@ -279,8 +285,10 @@ void MCServerHelper::closeEvent(QCloseEvent* event)
 {
 	if (ui.btnServerStart->isEnabled() == 0)
 	{
+		ServerStop();
+		m_server->waitForFinished();
 		QMessageBox::warning(this, tr("Warning"), tr("Minrcraft Server is still running,\nin order to avoid damaging world data,\nplease stop it brfore closing MCServerHelper!"));
-		event->ignore();
+		//event->ignore();
 		return;
 	}
 	m_frp->terminate();
@@ -291,4 +299,75 @@ void MCServerHelper::timeTik()
 {
 	ui.labSysTime->setText(QDateTime::currentDateTime().toString("yy/MM/dd hh:mm:ss"));
 	QTimer::singleShot(1000, this, SLOT(timeTik()));
+}
+
+void MCServerHelper::tabChanged(int tabid)
+{
+	if (tabid == 6)
+	{
+		ui.labAbout->setToolTip("");
+		if (!Update::isChecked)
+		{
+			switch (pUpdate->CheckUpdate())
+			{
+			case Update::InfoError:
+				break;
+			case Update::MustUpdate:
+				pUpdate->doUpdate();
+			case Update::NotLasted:
+				ui.btnDoUpdate->setEnabled(true);
+			case Update::CantAuto:
+				if (ui.btnShowUpdateInfo->text() == "U")
+				{
+					ShowUpdateInfo();
+				}
+				break;
+			default:
+				break;
+				//case Update::DownFail:
+				//	break;
+				//case Update::Crc32Error:
+				//	break;
+				//case Update::FileOperateError:
+				//	break;
+			}
+		}
+		else
+		{
+			if (ui.btnShowUpdateInfo->text() == "U" && !pUpdate->isLatest && !pUpdate->isError)
+			{
+				ShowUpdateInfo();
+			}
+		}
+	}
+}
+
+void MCServerHelper::ShowUpdateInfo()
+{
+	if (ui.btnShowUpdateInfo->text() == "U")
+	{
+		ui.btnShowUpdateInfo->setText("D");
+		pUpdateFrm->stop();
+		pUpdateFrm->setDuration(1000);
+		pUpdateFrm->setStartValue(QPoint(ui.frmUpdateInfo->x(), ui.frmUpdateInfo->y()));
+		pUpdateFrm->setEndValue(QPoint(0, -34));
+		pUpdateFrm->setEasingCurve(QEasingCurve::InOutQuad);
+		pUpdateFrm->start();
+	}
+	else
+	{
+		ui.btnShowUpdateInfo->setText("U");
+		pUpdateFrm->stop();
+		pUpdateFrm->setDuration(1000);
+		pUpdateFrm->setStartValue(QPoint(ui.frmUpdateInfo->x(), ui.frmUpdateInfo->y()));
+		pUpdateFrm->setEndValue(QPoint(0, 110));
+		pUpdateFrm->setEasingCurve(QEasingCurve::InOutQuad);
+		pUpdateFrm->start();
+	}
+}
+
+void MCServerHelper::btnDoUpdate()
+{
+	ui.btnDoUpdate->setEnabled(false);
+	pUpdate->doUpdate();
 }

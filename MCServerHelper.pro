@@ -14,9 +14,14 @@ UI_DIR += .
 RCC_DIR += .
 TRANSLATIONS += mcserverhelper_zh.ts \
     mcserverhelper_en.ts
-HEADERS += ./mcserverhelper.h
+HEADERS += ./mcserverhelper.h \
+    appinfo.h \
+    iniedit.h \
+    update.h
 SOURCES += ./mcserverhelper.cpp \
-    ./main.cpp
+    ./main.cpp \
+    iniedit.cpp \
+    update.cpp
 FORMS += ./mcserverhelper.ui
 TRANSLATIONS += ./mcserverhelper_zh.ts \
     ./mcserverhelper_en.ts
