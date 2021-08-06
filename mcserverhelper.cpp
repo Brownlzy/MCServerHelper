@@ -311,6 +311,7 @@ void MCServerHelper::tabChanged(int tabid)
 			switch (pUpdate->CheckUpdate())
 			{
 			case Update::InfoError:
+				ui.btnDoUpdate->setEnabled(true);
 				break;
 			case Update::MustUpdate:
 				pUpdate->doUpdate();
@@ -368,6 +369,15 @@ void MCServerHelper::ShowUpdateInfo()
 
 void MCServerHelper::btnDoUpdate()
 {
-	ui.btnDoUpdate->setEnabled(false);
-	pUpdate->doUpdate();
+	if (pUpdate->isChecked && pUpdate->isError)
+	{
+		pUpdate->isChecked = false;
+		tabChanged(6);
+		ui.btnDoUpdate->setEnabled(false);
+	}
+	else
+	{
+		ui.btnDoUpdate->setEnabled(false);
+		pUpdate->doUpdate();
+	}
 }

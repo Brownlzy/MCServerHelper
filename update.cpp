@@ -163,7 +163,7 @@ void Update::Updatefile()
 	std::ofstream fbat;
 	fbat.open(qApp->applicationDirPath().toStdString() + "/update.bat");
 	fbat << "@echo off\n";
-	fbat << "TIMEOUT /T 1\n";
+	fbat << "TIMEOUT /T 3\n";
 	fbat << "taskkill /pid " << qApp->applicationPid() << " -t -f\n";
 	fbat << "del MCServerHelper.exe\n";
 	fbat << "ren MCSH.bin MCServerHelper.exe\n";

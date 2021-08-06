@@ -1,7 +1,9 @@
-MCSH_OTA_INFO!10<0.1.0<10<1<26903860<200KB<https://Brownlzy.github.io/MCServerHelper/MCSHv[VERSION]_exe!MCServerHelper UpdateInfo
+MCSH_OTA_INFO!10<0.1.1<110<1<D162A044<202KB<https://Brownlzy.github.io/MCServerHelper/MCSHv[VERSION]_exe!MCServerHelper UpdateInfo
 
 Version 0.1.0
 1.增加自动更新功能.
+Patch.1
+1.修复一些Bug.
 
 ========历史更新========
 

@@ -9,12 +9,15 @@ int main(int argc, char* argv[])
 	QFileInfo file(qApp->applicationDirPath() + "/update.bat");
 	if (file.exists() == true)
 	{
-		QProcess::startDetached("update.bat");
+		QProcess::startDetached(qApp->applicationDirPath() + "/update.bat");
 		qApp->exit(0);
 	}
-	translator.load(":/language/mcserverhelper_zh.qm");
-	qApp->installTranslator(&translator);
-	MCServerHelper w;
-	w.show();
-	return a.exec();
+	else
+	{
+		translator.load(":/language/mcserverhelper_zh.qm");
+		qApp->installTranslator(&translator);
+		MCServerHelper w;
+		w.show();
+		return a.exec();
+	}
 }

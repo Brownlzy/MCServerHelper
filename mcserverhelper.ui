@@ -1219,9 +1219,9 @@
       <zorder>btnShowUpdateInfo</zorder>
       <zorder>btnDoUpdate</zorder>
      </widget>
-     <zorder>frmUpdateInfo</zorder>
      <zorder>label_16</zorder>
      <zorder>label_15</zorder>
+     <zorder>frmUpdateInfo</zorder>
     </widget>
    </widget>
   </widget>
