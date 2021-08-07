@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include <QtWidgets/QMainWindow>
+#include <QMainWindow>
 #include "ui_mcserverhelper.h"
 #include "iniedit.h"
 #include "appinfo.h"
@@ -10,6 +10,7 @@
 #include <QTime>
 #include <QTimer>
 #include <QPropertyAnimation>
+#include <QTranslator>
 
 class MCServerHelper : public QMainWindow
 {
@@ -52,4 +53,5 @@ public slots:
 	void tabChanged(int tabid);
 	void ShowUpdateInfo();
 	void btnDoUpdate();
+	void ChangeLanguage();
 };

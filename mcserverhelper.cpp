@@ -4,14 +4,26 @@ MCServerHelper::MCServerHelper(QWidget* parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
+	ie = new iniEdit(this);
+	UpdateSettings();
+	QTranslator translator;
+	if (ie->ReadMyINI(QString("Language")) == "zh_cn")
+	{
+		translator.load(":/language/mcserverhelper_zh.qm");
+		ui.radChinese->setChecked(true);
+	}
+	else
+	{
+		translator.load(":/language/mcserverhelper_en.qm");
+	}
+	qApp->installTranslator(&translator);
+	ui.retranslateUi(this);
 	this->setFixedSize(this->width(), this->height());
 	this->setWindowTitle(QString("MCServerHelper v") + VERSION + " By:Brownlzy");
-	ie = new iniEdit(this);
 	m_server = new QProcess(this);
 	m_frp = new QProcess(this);
 	pUpdateFrm = new QPropertyAnimation(ui.frmUpdateInfo, "pos", this);
 	pUpdate = new Update(this, ui.DownBar, ui.labAbout, ui.txtUpdateInfo);
-	UpdateSettings();
 	m_server->setWorkingDirectory(qApp->applicationDirPath() + "/Server");
 	m_server->setProcessChannelMode(QProcess::MergedChannels);
 	m_frp->setWorkingDirectory(qApp->applicationDirPath() + "/FRP");
@@ -20,7 +32,7 @@ MCServerHelper::MCServerHelper(QWidget* parent)
 	ui.btnFrpStop->setEnabled(false);
 	ui.btnServerInput->setEnabled(false);
 	ui.btnDoUpdate->setEnabled(false);
-	ui.labAbout->setText(QString("Build Time: ") + __TIMESTAMP__);
+	ui.labAbout->setText(QString(tr("Build Time: ")) + __TIMESTAMP__);
 	ui.frmUpdateInfo->move(0, 110);
 	connect(m_server, SIGNAL(readyReadStandardOutput()), this, SLOT(onServerOutput()));
 	connect(m_frp, SIGNAL(readyReadStandardOutput()), this, SLOT(onFrpOutput()));
@@ -38,6 +50,7 @@ MCServerHelper::MCServerHelper(QWidget* parent)
 	connect(ui.tabWidget, SIGNAL(currentChanged(int)), this, SLOT(tabChanged(int)));
 	connect(ui.btnShowUpdateInfo, SIGNAL(clicked()), this, SLOT(ShowUpdateInfo()));
 	connect(ui.btnDoUpdate, SIGNAL(clicked()), this, SLOT(btnDoUpdate()));
+	connect(ui.btnChangeLanguage, SIGNAL(clicked()), this, SLOT(ChangeLanguage()));
 	QTimer::singleShot(1000, this, SLOT(timeTik()));
 	//connect(ui.PathJava, SIGNAL(textChanged(QString)), this, SLOT(MCSHTextChanged(QString)));
 	//connect(ui.PathServer, SIGNAL(textChanged(QString)), this, SLOT(MCSHTextChanged(QString)));
@@ -175,7 +188,7 @@ void MCServerHelper::Donate()
 	QLabel* plab = new QLabel("<html><head/><body><p><img src="":/pic/png/pay"" widyh=""191"" height=""191""/></p></body></html>");
 	plab->setFixedSize(191, 191);
 	plab->setWindowIcon(QIcon(":/pic/icon/DinoOL"));
-	plab->setWindowTitle("注意:赞助是无偿自愿行为");
+	plab->setToolTip(tr("Note: sponsorship is free and voluntary"));
 	plab->setWindowFlags(Qt::WindowCloseButtonHint | Qt::WindowStaysOnTopHint);
 	plab->show();
 }
@@ -244,6 +257,10 @@ void MCServerHelper::MSCHConfirm()
 	ie->myini.isStartWithWindow = ui.chkStartWithWindows->isChecked();
 	ie->myini.isStartServerOnceStarted = ui.chkStartServerOnce->isChecked();
 	ie->myini.isStartFrpWithServer = ui.chkStartFrpOnce->isChecked();
+	if (ui.radChinese->isChecked())
+		ie->myini.Language = "zh_cn";
+	else
+		ie->myini.Language = "en_us";
 	ie->myini.JavaPath = ui.PathJava->text().replace(" ", "&nbsp;").toStdString();
 	ie->myini.MinMemory = ui.MinRam->text().toInt();
 	ie->myini.MaxMemory = ui.MaxRam->text().toInt();
@@ -252,6 +269,7 @@ void MCServerHelper::MSCHConfirm()
 	ie->myini.FrpINIPath = ui.PathFrpIni->text().replace(" ", "&nbsp;").toStdString();
 	ie->WriteMyINI();
 	UpdateSettings();
+	ChangeLanguage();
 }
 
 void MCServerHelper::MSCHCancel()
@@ -291,6 +309,7 @@ void MCServerHelper::closeEvent(QCloseEvent* event)
 		//event->ignore();
 		return;
 	}
+	ie->WriteMyINI();
 	m_frp->terminate();
 	m_frp->kill();
 }
@@ -380,4 +399,22 @@ void MCServerHelper::btnDoUpdate()
 		ui.btnDoUpdate->setEnabled(false);
 		pUpdate->doUpdate();
 	}
+}
+
+void MCServerHelper::ChangeLanguage()
+{
+	QTranslator translator;
+	if (ui.radChinese->isChecked())
+	{
+		translator.load(":/language/mcserverhelper_zh.qm");
+		ui.radChinese->setChecked(true);
+	}
+	else
+	{
+		translator.load(":/language/mcserverhelper_en.qm");
+	}
+	qApp->installTranslator(&translator);
+	ui.retranslateUi(this);
+	ui.labAbout->setText(QString(tr("Build Time: ")) + __TIMESTAMP__);
+	this->setWindowTitle(QString("MCServerHelper v") + VERSION + " By:Brownlzy");
 }

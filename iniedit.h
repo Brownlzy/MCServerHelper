@@ -33,6 +33,7 @@ public:
 		bool isStartWithWindow = false;
 		bool isStartServerOnceStarted = false;
 		bool isStartFrpWithServer = false;
+		string Language = "en_us";
 		string JavaPath = "java";
 		int MinMemory = 1024;
 		int MaxMemory = 1024;

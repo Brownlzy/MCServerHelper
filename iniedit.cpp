@@ -32,6 +32,8 @@ int iniEdit::ReadMyINI()
 				fin >> str_tmp >> myini.isStartServerOnceStarted;
 			else if ("isStartFrpWithServer" == str_tmp)
 				fin >> str_tmp >> myini.isStartFrpWithServer;
+			else if ("Language" == str_tmp)
+				fin >> str_tmp >> myini.Language;
 			else if ("JavaPath" == str_tmp)
 				fin >> str_tmp >> myini.JavaPath;
 			else if ("MinMemory" == str_tmp)
@@ -66,6 +68,8 @@ QString iniEdit::ReadMyINI(QString sName)
 		return myini.isStartServerOnceStarted;
 	else if ("isStartFrpWithServer" == sName)
 		return myini.isStartFrpWithServer;
+	else if ("Language" == sName)
+		return QString::fromStdString(myini.Language);
 	else if ("JavaPath" == sName)
 		return QString::fromStdString(myini.JavaPath);
 	else if ("MinMemory" == sName)
@@ -130,6 +134,7 @@ int iniEdit::WriteMyINI()
 	fout << "isStartWithWindows = " << myini.isStartWithWindow << endl;
 	fout << "isStartServerOnceStarted = " << myini.isStartServerOnceStarted << endl;
 	fout << "isStartFrpWithServer = " << myini.isStartFrpWithServer << endl;
+	fout << "Language = " << myini.Language << endl;
 	fout << "JavaPath = " << myini.JavaPath << endl;
 	fout << "MinMemory = " << myini.MinMemory << endl;
 	fout << "MaxMemory = " << myini.MaxMemory << endl;

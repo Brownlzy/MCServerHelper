@@ -1014,6 +1014,48 @@
        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
       </property>
      </widget>
+     <widget class="QRadioButton" name="radEnglish">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>20</y>
+        <width>89</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>English</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radChinese">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>20</y>
+        <width>89</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>简体中文</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnChangeLanguage">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>50</y>
+        <width>161</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>更改语言/Change language</string>
+      </property>
+     </widget>
      <zorder>btnMCSHBroswe</zorder>
      <zorder>pushButton_6</zorder>
      <zorder>pushButton_5</zorder>
@@ -1047,6 +1089,9 @@
      <zorder>label_19</zorder>
      <zorder>label_20</zorder>
      <zorder>label_21</zorder>
+     <zorder>radEnglish</zorder>
+     <zorder>radChinese</zorder>
+     <zorder>btnChangeLanguage</zorder>
     </widget>
     <widget class="QWidget" name="tabAbout">
      <attribute name="title">
@@ -1108,9 +1153,9 @@
       <widget class="QProgressBar" name="DownBar">
        <property name="geometry">
         <rect>
-         <x>110</x>
+         <x>129</x>
          <y>230</y>
-         <width>374</width>
+         <width>336</width>
          <height>19</height>
         </rect>
        </property>
@@ -1127,9 +1172,9 @@
       <widget class="QLabel" name="labAbout">
        <property name="geometry">
         <rect>
-         <x>107</x>
+         <x>127</x>
          <y>229</y>
-         <width>371</width>
+         <width>341</width>
          <height>20</height>
         </rect>
        </property>
@@ -1219,9 +1264,6 @@
       <zorder>btnShowUpdateInfo</zorder>
       <zorder>btnDoUpdate</zorder>
      </widget>
-     <zorder>label_16</zorder>
-     <zorder>label_15</zorder>
-     <zorder>frmUpdateInfo</zorder>
     </widget>
    </widget>
   </widget>
