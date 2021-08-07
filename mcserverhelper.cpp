@@ -18,6 +18,7 @@ MCServerHelper::MCServerHelper(QWidget* parent)
 	}
 	qApp->installTranslator(&translator);
 	ui.retranslateUi(this);
+	ui.menuBar->hide();
 	this->setFixedSize(this->width(), this->height());
 	this->setWindowTitle(QString("MCServerHelper v") + VERSION + " By:Brownlzy");
 	m_server = new QProcess(this);
@@ -51,6 +52,7 @@ MCServerHelper::MCServerHelper(QWidget* parent)
 	connect(ui.btnShowUpdateInfo, SIGNAL(clicked()), this, SLOT(ShowUpdateInfo()));
 	connect(ui.btnDoUpdate, SIGNAL(clicked()), this, SLOT(btnDoUpdate()));
 	connect(ui.btnChangeLanguage, SIGNAL(clicked()), this, SLOT(ChangeLanguage()));
+	connect(ui.btnCommand, SIGNAL(clicked()), this, SLOT(MenuCommand()));
 	QTimer::singleShot(1000, this, SLOT(timeTik()));
 	//connect(ui.PathJava, SIGNAL(textChanged(QString)), this, SLOT(MCSHTextChanged(QString)));
 	//connect(ui.PathServer, SIGNAL(textChanged(QString)), this, SLOT(MCSHTextChanged(QString)));
@@ -417,4 +419,11 @@ void MCServerHelper::ChangeLanguage()
 	ui.retranslateUi(this);
 	ui.labAbout->setText(QString(tr("Build Time: ")) + __TIMESTAMP__);
 	this->setWindowTitle(QString("MCServerHelper v") + VERSION + " By:Brownlzy");
+}
+
+void MCServerHelper::MenuCommand()
+{
+	QMenu* popMenu = new QMenu(this);//定义一个右键弹出菜单
+	popMenu->addMenu(ui.menuCommand);
+	popMenu->exec(QCursor::pos());//弹出右键菜单，菜单位置为光标位置
 }

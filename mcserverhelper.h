@@ -54,4 +54,5 @@ public slots:
 	void ShowUpdateInfo();
 	void btnDoUpdate();
 	void ChangeLanguage();
+	void MenuCommand();
 };

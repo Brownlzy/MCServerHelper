@@ -125,7 +125,7 @@
        <string>Minecraft Server Console:</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_20">
+     <widget class="QPushButton" name="btnCommand">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -1267,6 +1267,2078 @@
     </widget>
    </widget>
   </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>600</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="nativeMenuBar">
+    <bool>true</bool>
+   </property>
+   <widget class="QMenu" name="menuCommand">
+    <property name="title">
+     <string>Command Helper</string>
+    </property>
+    <widget class="QMenu" name="menuadvancement">
+     <property name="title">
+      <string>advancement</string>
+     </property>
+     <addaction name="actiongrant"/>
+     <addaction name="actionrevoke"/>
+    </widget>
+    <widget class="QMenu" name="menuattribute">
+     <property name="title">
+      <string>attribute</string>
+     </property>
+     <widget class="QMenu" name="menu_target_attribute">
+      <property name="title">
+       <string>&lt;target&gt; &lt;attribute&gt;</string>
+      </property>
+      <addaction name="actionget"/>
+      <addaction name="actionbase"/>
+      <addaction name="actionmodifier"/>
+     </widget>
+     <addaction name="menu_target_attribute"/>
+    </widget>
+    <widget class="QMenu" name="menuexecute">
+     <property name="title">
+      <string>execute</string>
+     </property>
+     <addaction name="actionrun"/>
+     <addaction name="actionif"/>
+     <addaction name="actionunless"/>
+     <addaction name="actionas"/>
+     <addaction name="actionat"/>
+     <addaction name="actionstore"/>
+     <addaction name="actionpositioned"/>
+     <addaction name="actionrotated"/>
+     <addaction name="actionfacing"/>
+     <addaction name="actionalign"/>
+     <addaction name="actionanchored"/>
+     <addaction name="actionin"/>
+    </widget>
+    <widget class="QMenu" name="menubossbar">
+     <property name="title">
+      <string>bossbar</string>
+     </property>
+     <addaction name="actionadd"/>
+     <addaction name="actionremove"/>
+     <addaction name="actionlist"/>
+     <addaction name="actionset"/>
+     <addaction name="actionget_2"/>
+    </widget>
+    <widget class="QMenu" name="menuclear">
+     <property name="title">
+      <string>clear</string>
+     </property>
+     <addaction name="action_targets"/>
+    </widget>
+    <widget class="QMenu" name="menuclone">
+     <property name="title">
+      <string>clone</string>
+     </property>
+     <widget class="QMenu" name="menu_begin_end_destination">
+      <property name="title">
+       <string>&lt;begin&gt; &lt;end&gt; &lt;destination&gt;</string>
+      </property>
+      <addaction name="actionreplace"/>
+      <addaction name="actionmasked"/>
+      <addaction name="actionfiltered"/>
+     </widget>
+     <addaction name="action_begin_end_destination"/>
+     <addaction name="menu_begin_end_destination"/>
+    </widget>
+    <widget class="QMenu" name="menudata">
+     <property name="title">
+      <string>data</string>
+     </property>
+     <addaction name="actionmerge"/>
+     <addaction name="actionget_3"/>
+     <addaction name="actionremove_2"/>
+     <addaction name="actionmodify"/>
+    </widget>
+    <widget class="QMenu" name="menudatapack">
+     <property name="title">
+      <string>datapack</string>
+     </property>
+     <addaction name="actionenable"/>
+     <addaction name="actiondisable_list"/>
+    </widget>
+    <widget class="QMenu" name="menudebug">
+     <property name="title">
+      <string>debug</string>
+     </property>
+     <addaction name="actionstart"/>
+     <addaction name="actionstop"/>
+     <addaction name="actionfunction"/>
+    </widget>
+    <widget class="QMenu" name="menudefaultgamemode">
+     <property name="title">
+      <string>defaultgamemode</string>
+     </property>
+     <addaction name="actionsurvival"/>
+     <addaction name="actioncreative"/>
+     <addaction name="actionadventure"/>
+     <addaction name="actionspectator"/>
+    </widget>
+    <widget class="QMenu" name="menudifficulty">
+     <property name="title">
+      <string>difficulty</string>
+     </property>
+     <addaction name="actionpeaceful"/>
+     <addaction name="actioneasy"/>
+     <addaction name="actionnormal"/>
+     <addaction name="actionhard"/>
+    </widget>
+    <widget class="QMenu" name="menueffecf">
+     <property name="title">
+      <string>effecf</string>
+     </property>
+     <addaction name="actionclear_2"/>
+     <addaction name="actiongive"/>
+    </widget>
+    <widget class="QMenu" name="menume">
+     <property name="title">
+      <string>me</string>
+     </property>
+     <addaction name="action_action"/>
+    </widget>
+    <widget class="QMenu" name="menufill">
+     <property name="title">
+      <string>fill</string>
+     </property>
+     <widget class="QMenu" name="menu_from_to_block">
+      <property name="title">
+       <string>&lt;from&gt; &lt;to&gt; &lt;block&gt;</string>
+      </property>
+      <addaction name="actionreplace_2"/>
+      <addaction name="actionkeep"/>
+      <addaction name="actionoutline"/>
+      <addaction name="actionhollow"/>
+      <addaction name="actiondestroy"/>
+     </widget>
+     <addaction name="action_from_to_block"/>
+     <addaction name="menu_from_to_block"/>
+    </widget>
+    <widget class="QMenu" name="menuexperience">
+     <property name="title">
+      <string>experience</string>
+     </property>
+     <addaction name="actionadd_2"/>
+     <addaction name="actionset_2"/>
+     <addaction name="actionquery"/>
+    </widget>
+    <widget class="QMenu" name="menufunction">
+     <property name="title">
+      <string>function</string>
+     </property>
+     <addaction name="action_name"/>
+    </widget>
+    <widget class="QMenu" name="menugamemode">
+     <property name="title">
+      <string>gamemode</string>
+     </property>
+     <addaction name="actionsurvival_2"/>
+     <addaction name="actioncreative_2"/>
+     <addaction name="actionadventure_2"/>
+     <addaction name="actionspectator_2"/>
+    </widget>
+    <widget class="QMenu" name="menuitem">
+     <property name="title">
+      <string>item</string>
+     </property>
+     <addaction name="actionreplace_3"/>
+     <addaction name="actionmodify_2"/>
+    </widget>
+    <widget class="QMenu" name="menuenchant">
+     <property name="title">
+      <string>enchant</string>
+     </property>
+     <addaction name="action_targets_enchantment_level"/>
+    </widget>
+    <widget class="QMenu" name="menuxp">
+     <property name="title">
+      <string>xp</string>
+     </property>
+     <addaction name="actionadd_3"/>
+     <addaction name="actionset_3"/>
+     <addaction name="actionquery_2"/>
+    </widget>
+    <widget class="QMenu" name="menuforceload">
+     <property name="title">
+      <string>forceload</string>
+     </property>
+     <addaction name="actionadd_4"/>
+     <addaction name="actionremove_3"/>
+     <addaction name="actionquery_3"/>
+    </widget>
+    <widget class="QMenu" name="menugamerule">
+     <property name="title">
+      <string>gamerule</string>
+     </property>
+     <addaction name="actionannounceAdvancements"/>
+     <addaction name="actioncommandBlockOutput"/>
+     <addaction name="actiondisableElytraMovementCheck"/>
+     <addaction name="actiondisableRaids"/>
+     <addaction name="actiondoDaylightCycle"/>
+     <addaction name="actiondoEntityDrops"/>
+     <addaction name="actiondoFireTick"/>
+     <addaction name="actiondoImmediateRespawn"/>
+     <addaction name="actiondoInsomnia"/>
+     <addaction name="actiondoLimitedCrafting"/>
+     <addaction name="actiondoMobLoot"/>
+     <addaction name="actiondoMobSpawning"/>
+     <addaction name="actiondoPatrolSpawnin"/>
+     <addaction name="actiondoTileDrops"/>
+     <addaction name="actiondoTraderSpawning"/>
+     <addaction name="actiondoWeatherCycle"/>
+     <addaction name="actiondrowningDamage"/>
+     <addaction name="actionfallDamage"/>
+     <addaction name="actionforgiveDeadPlayers"/>
+     <addaction name="actionfreezeDamage"/>
+     <addaction name="actionkeepInventory"/>
+     <addaction name="actionlogAdminCommands"/>
+     <addaction name="actionmaxCommandChainLength"/>
+     <addaction name="actionmaxEntityCramming"/>
+     <addaction name="actionmobGriefing"/>
+     <addaction name="actionnaturalRegeneration"/>
+     <addaction name="actionplayersSleepingPercentage"/>
+     <addaction name="actionrandomTickSpeed"/>
+     <addaction name="actionreducedDebugInfo"/>
+     <addaction name="actionsendCommandFeedback"/>
+     <addaction name="actionshowDeathMessages"/>
+     <addaction name="actionspawnRadius"/>
+     <addaction name="actionspectatorsGenerateChunks"/>
+     <addaction name="actionuniversalAnger"/>
+    </widget>
+    <widget class="QMenu" name="menugive">
+     <property name="title">
+      <string>give</string>
+     </property>
+     <widget class="QMenu" name="menu_targets_item">
+      <property name="title">
+       <string>&lt;targets&gt; &lt;item&gt;</string>
+      </property>
+      <addaction name="action_count"/>
+     </widget>
+     <addaction name="action_targets_item"/>
+     <addaction name="menu_targets_item"/>
+    </widget>
+    <widget class="QMenu" name="menuhelp">
+     <property name="title">
+      <string>help</string>
+     </property>
+     <addaction name="actionShell"/>
+     <addaction name="action_command"/>
+    </widget>
+    <widget class="QMenu" name="menuwhitelist">
+     <property name="title">
+      <string>whitelist</string>
+     </property>
+     <addaction name="actionon"/>
+     <addaction name="actionoff"/>
+     <addaction name="actionlist_3"/>
+     <addaction name="actionadd_5"/>
+     <addaction name="actionremove_4"/>
+     <addaction name="actionreload_2"/>
+    </widget>
+    <widget class="QMenu" name="menukick">
+     <property name="title">
+      <string>kick</string>
+     </property>
+     <widget class="QMenu" name="menu_targets">
+      <property name="title">
+       <string>&lt;targets&gt;</string>
+      </property>
+      <addaction name="action_reason"/>
+     </widget>
+     <addaction name="action_targets_2"/>
+     <addaction name="menu_targets"/>
+    </widget>
+    <widget class="QMenu" name="menukill">
+     <property name="title">
+      <string>kill</string>
+     </property>
+     <addaction name="actionShell_2"/>
+     <addaction name="action_targets_4"/>
+    </widget>
+    <widget class="QMenu" name="menulist">
+     <property name="title">
+      <string>list</string>
+     </property>
+     <addaction name="actionShell_3"/>
+     <addaction name="action_uuid"/>
+    </widget>
+    <widget class="QMenu" name="menulocate">
+     <property name="title">
+      <string>locate</string>
+     </property>
+     <addaction name="actionpillager_outpost"/>
+     <addaction name="action_mineshaft"/>
+     <addaction name="actionmansion"/>
+     <addaction name="actionjungle_pyramid"/>
+     <addaction name="actiondesert_pyramid"/>
+     <addaction name="actionigloo"/>
+     <addaction name="actionruined_portal"/>
+     <addaction name="actionshipwreck"/>
+     <addaction name="actionswamp_hut"/>
+     <addaction name="actionstronghold"/>
+     <addaction name="actionmonument"/>
+     <addaction name="actionocean_ruin"/>
+     <addaction name="actionfortress"/>
+     <addaction name="actionendcity"/>
+     <addaction name="actionburied_treasure"/>
+     <addaction name="actionvillage"/>
+     <addaction name="actionnether_fossil"/>
+     <addaction name="actionbastion_remnant"/>
+    </widget>
+    <widget class="QMenu" name="menulocatebiome">
+     <property name="title">
+      <string>locatebiome</string>
+     </property>
+     <addaction name="action_biome"/>
+    </widget>
+    <widget class="QMenu" name="menuloot">
+     <property name="title">
+      <string>loot</string>
+     </property>
+     <addaction name="actionreplace_4"/>
+     <addaction name="actioninsert"/>
+     <addaction name="actiongive_2"/>
+     <addaction name="actionspawn"/>
+    </widget>
+    <widget class="QMenu" name="menumsg">
+     <property name="title">
+      <string>msg</string>
+     </property>
+     <addaction name="action_targets_message"/>
+    </widget>
+    <widget class="QMenu" name="menutell">
+     <property name="title">
+      <string>tell</string>
+     </property>
+     <addaction name="action_targets_message_2"/>
+    </widget>
+    <widget class="QMenu" name="menuw">
+     <property name="title">
+      <string>w</string>
+     </property>
+     <addaction name="action_targets_message_3"/>
+    </widget>
+    <widget class="QMenu" name="menuparticle">
+     <property name="title">
+      <string>particle</string>
+     </property>
+     <widget class="QMenu" name="menu_name">
+      <property name="title">
+       <string>&lt;name&gt;</string>
+      </property>
+      <addaction name="action_pos"/>
+     </widget>
+     <addaction name="action_name_2"/>
+     <addaction name="menu_name"/>
+    </widget>
+    <widget class="QMenu" name="menuplaysound">
+     <property name="title">
+      <string>playsound</string>
+     </property>
+     <widget class="QMenu" name="menu_sound">
+      <property name="title">
+       <string>&lt;sound&gt;</string>
+      </property>
+      <addaction name="actionmaster"/>
+      <addaction name="actionmusic"/>
+      <addaction name="actionrecord"/>
+      <addaction name="actionweather_2"/>
+      <addaction name="actionblock"/>
+      <addaction name="actionhostile"/>
+      <addaction name="actionneutral"/>
+      <addaction name="actionplayer"/>
+      <addaction name="actionambient"/>
+      <addaction name="actionvoice"/>
+     </widget>
+     <addaction name="menu_sound"/>
+    </widget>
+    <widget class="QMenu" name="menureload">
+     <property name="title">
+      <string>reload</string>
+     </property>
+     <addaction name="actionShell_4"/>
+    </widget>
+    <widget class="QMenu" name="menurecipe">
+     <property name="title">
+      <string>recipe</string>
+     </property>
+     <addaction name="actiongive_3"/>
+     <addaction name="actiontake"/>
+    </widget>
+    <widget class="QMenu" name="menusay">
+     <property name="title">
+      <string>say</string>
+     </property>
+     <addaction name="action_message"/>
+    </widget>
+    <widget class="QMenu" name="menuschedule">
+     <property name="title">
+      <string>schedule</string>
+     </property>
+     <addaction name="actionfunction_2"/>
+     <addaction name="actionclear"/>
+    </widget>
+    <widget class="QMenu" name="menuscoreboard">
+     <property name="title">
+      <string>scoreboard</string>
+     </property>
+     <addaction name="actionobjectives"/>
+     <addaction name="actionplayers"/>
+    </widget>
+    <widget class="QMenu" name="menuseed">
+     <property name="title">
+      <string>seed</string>
+     </property>
+     <addaction name="actionShell_5"/>
+    </widget>
+    <widget class="QMenu" name="menusetblock">
+     <property name="title">
+      <string>setblock</string>
+     </property>
+     <widget class="QMenu" name="menu_pos_block">
+      <property name="title">
+       <string>&lt;pos&gt; &lt;block&gt;</string>
+      </property>
+      <addaction name="actiondestroy_2"/>
+      <addaction name="actionkeep_2"/>
+      <addaction name="actionreplace_5"/>
+     </widget>
+     <addaction name="menu_pos_block"/>
+    </widget>
+    <widget class="QMenu" name="menuspawnpoint">
+     <property name="title">
+      <string>spawnpoint</string>
+     </property>
+     <addaction name="actionShell_6"/>
+     <addaction name="action_targets_5"/>
+    </widget>
+    <widget class="QMenu" name="menusetworldspawn">
+     <property name="title">
+      <string>setworldspawn</string>
+     </property>
+     <addaction name="actionShell_7"/>
+     <addaction name="action_pos_2"/>
+    </widget>
+    <widget class="QMenu" name="menuspectate">
+     <property name="title">
+      <string>spectate</string>
+     </property>
+     <addaction name="actionShell_8"/>
+     <addaction name="action_target"/>
+    </widget>
+    <widget class="QMenu" name="menuspreadplayers">
+     <property name="title">
+      <string>spreadplayers</string>
+     </property>
+     <widget class="QMenu" name="menu_center_spreadDistance_maxRange">
+      <property name="title">
+       <string>&lt;center&gt; &lt;spreadDistance&gt; &lt;maxRange&gt;</string>
+      </property>
+      <addaction name="action_respectTeams"/>
+      <addaction name="actionunder"/>
+     </widget>
+     <addaction name="menu_center_spreadDistance_maxRange"/>
+    </widget>
+    <widget class="QMenu" name="menustopsound">
+     <property name="title">
+      <string>stopsound</string>
+     </property>
+     <widget class="QMenu" name="menu_targets_2">
+      <property name="title">
+       <string>&lt;targets&gt;</string>
+      </property>
+      <addaction name="action_3"/>
+      <addaction name="actionmaster_2"/>
+      <addaction name="actionmusic_2"/>
+      <addaction name="actionrecord_2"/>
+      <addaction name="actionweather_3"/>
+      <addaction name="actionblock_2"/>
+      <addaction name="actionhostile_2"/>
+      <addaction name="actionneutral_2"/>
+      <addaction name="actionplayer_2"/>
+      <addaction name="actionambient_2"/>
+      <addaction name="actionvoice_2"/>
+     </widget>
+     <addaction name="action_targets_6"/>
+     <addaction name="menu_targets_2"/>
+    </widget>
+    <widget class="QMenu" name="menusummon">
+     <property name="title">
+      <string>summon</string>
+     </property>
+     <widget class="QMenu" name="menu_entity">
+      <property name="title">
+       <string>&lt;entity&gt;</string>
+      </property>
+      <addaction name="action_pos_3"/>
+     </widget>
+     <addaction name="action_entity"/>
+     <addaction name="menu_entity"/>
+    </widget>
+    <widget class="QMenu" name="menutag">
+     <property name="title">
+      <string>tag</string>
+     </property>
+     <widget class="QMenu" name="menu_targets_3">
+      <property name="title">
+       <string>&lt;targets&gt;</string>
+      </property>
+      <addaction name="actionadd_6"/>
+      <addaction name="actionremove_5"/>
+      <addaction name="actionlist_4"/>
+     </widget>
+     <addaction name="menu_targets_3"/>
+    </widget>
+    <widget class="QMenu" name="menuteam">
+     <property name="title">
+      <string>team</string>
+     </property>
+     <addaction name="actionlist_5"/>
+     <addaction name="actionadd_7"/>
+     <addaction name="actionremove_6"/>
+     <addaction name="actionempty"/>
+     <addaction name="actionjoin"/>
+     <addaction name="actionleave"/>
+     <addaction name="actionmodify_3"/>
+    </widget>
+    <widget class="QMenu" name="menuteammsg">
+     <property name="title">
+      <string>teammsg</string>
+     </property>
+     <addaction name="action_message_2"/>
+    </widget>
+    <widget class="QMenu" name="menutm">
+     <property name="title">
+      <string>tm</string>
+     </property>
+     <addaction name="action_message_2"/>
+    </widget>
+    <widget class="QMenu" name="menuteleport">
+     <property name="title">
+      <string>teleport</string>
+     </property>
+     <addaction name="action_location"/>
+     <addaction name="action_destination"/>
+     <addaction name="action_targets_9"/>
+    </widget>
+    <widget class="QMenu" name="menutp">
+     <property name="title">
+      <string>tp</string>
+     </property>
+     <addaction name="action_location"/>
+     <addaction name="action_destination"/>
+     <addaction name="action_targets_9"/>
+    </widget>
+    <widget class="QMenu" name="menutellraw">
+     <property name="title">
+      <string>tellraw</string>
+     </property>
+     <addaction name="action_targets_message_4"/>
+    </widget>
+    <widget class="QMenu" name="menutime">
+     <property name="title">
+      <string>time</string>
+     </property>
+     <widget class="QMenu" name="menuset">
+      <property name="title">
+       <string>set</string>
+      </property>
+      <addaction name="actionday"/>
+      <addaction name="actionnoon"/>
+      <addaction name="actionnight"/>
+      <addaction name="actionmidnight"/>
+     </widget>
+     <addaction name="menuset"/>
+     <addaction name="actionadd_8"/>
+     <addaction name="actionquery_4"/>
+    </widget>
+    <widget class="QMenu" name="menutitle">
+     <property name="title">
+      <string>title</string>
+     </property>
+     <widget class="QMenu" name="menu_targets_4">
+      <property name="title">
+       <string>&lt;targets&gt;</string>
+      </property>
+      <addaction name="actionclear_3"/>
+      <addaction name="actionreset"/>
+      <addaction name="actiontitle_2"/>
+      <addaction name="actionsubtitle"/>
+      <addaction name="actionactionbar"/>
+      <addaction name="actiontimes"/>
+     </widget>
+     <addaction name="menu_targets_4"/>
+    </widget>
+    <widget class="QMenu" name="menutrigger">
+     <property name="title">
+      <string>trigger</string>
+     </property>
+     <widget class="QMenu" name="menu_objective">
+      <property name="title">
+       <string>&lt;objective&gt;</string>
+      </property>
+      <addaction name="actionadd_9"/>
+      <addaction name="actionset_5"/>
+     </widget>
+     <addaction name="menu_objective"/>
+    </widget>
+    <widget class="QMenu" name="menuweather">
+     <property name="title">
+      <string>weather</string>
+     </property>
+     <addaction name="actionclear_4"/>
+     <addaction name="actionrain"/>
+     <addaction name="actionthunder"/>
+    </widget>
+    <widget class="QMenu" name="menuworldborder">
+     <property name="title">
+      <string>worldborder</string>
+     </property>
+     <addaction name="actionadd_10"/>
+     <addaction name="actionset_6"/>
+     <addaction name="actioncenter"/>
+     <addaction name="actiondamage"/>
+     <addaction name="actionget_4"/>
+     <addaction name="actionwarning"/>
+    </widget>
+    <widget class="QMenu" name="menuban_ip">
+     <property name="title">
+      <string>ban-ip</string>
+     </property>
+     <widget class="QMenu" name="menu_target">
+      <property name="title">
+       <string>&lt;target&gt;</string>
+      </property>
+      <addaction name="action_reason_2"/>
+     </widget>
+     <addaction name="action_target_2"/>
+     <addaction name="menu_target"/>
+    </widget>
+    <widget class="QMenu" name="menubanlist">
+     <property name="title">
+      <string>banlist</string>
+     </property>
+     <addaction name="actionips"/>
+     <addaction name="actionplayers_2"/>
+    </widget>
+    <widget class="QMenu" name="menuban">
+     <property name="title">
+      <string>ban</string>
+     </property>
+     <widget class="QMenu" name="menu_targets_5">
+      <property name="title">
+       <string>&lt;targets&gt;</string>
+      </property>
+      <addaction name="action_reason_3"/>
+     </widget>
+     <addaction name="action_targets_11"/>
+     <addaction name="menu_targets_5"/>
+    </widget>
+    <widget class="QMenu" name="menudeop">
+     <property name="title">
+      <string>deop</string>
+     </property>
+     <addaction name="action_targets_13"/>
+    </widget>
+    <widget class="QMenu" name="menuop">
+     <property name="title">
+      <string>op</string>
+     </property>
+     <addaction name="action_targets_14"/>
+    </widget>
+    <widget class="QMenu" name="menupardon">
+     <property name="title">
+      <string>pardon</string>
+     </property>
+     <addaction name="action_targets_15"/>
+    </widget>
+    <widget class="QMenu" name="menupardon_ip">
+     <property name="title">
+      <string>pardon-ip</string>
+     </property>
+     <addaction name="action_targets_16"/>
+    </widget>
+    <widget class="QMenu" name="menuperf">
+     <property name="title">
+      <string>perf</string>
+     </property>
+     <addaction name="actionstart_2"/>
+     <addaction name="actionstop_3"/>
+    </widget>
+    <widget class="QMenu" name="menusave_all">
+     <property name="title">
+      <string>save-all</string>
+     </property>
+     <addaction name="actionShell_9"/>
+     <addaction name="action_flush"/>
+    </widget>
+    <widget class="QMenu" name="menusave_off">
+     <property name="title">
+      <string>save-off</string>
+     </property>
+     <addaction name="actionShell_10"/>
+    </widget>
+    <widget class="QMenu" name="menusave_on">
+     <property name="title">
+      <string>save-on</string>
+     </property>
+     <addaction name="actionShell_11"/>
+    </widget>
+    <widget class="QMenu" name="menusetidletimeout">
+     <property name="title">
+      <string>setidletimeout</string>
+     </property>
+     <addaction name="action_minutes"/>
+    </widget>
+    <widget class="QMenu" name="menustop">
+     <property name="title">
+      <string>stop</string>
+     </property>
+     <addaction name="actionShell_12"/>
+    </widget>
+    <addaction name="menuadvancement"/>
+    <addaction name="menuattribute"/>
+    <addaction name="menuban_ip"/>
+    <addaction name="menubanlist"/>
+    <addaction name="menuban"/>
+    <addaction name="menubossbar"/>
+    <addaction name="menuclear"/>
+    <addaction name="menuclone"/>
+    <addaction name="menudata"/>
+    <addaction name="menudatapack"/>
+    <addaction name="menudebug"/>
+    <addaction name="menudefaultgamemode"/>
+    <addaction name="menudeop"/>
+    <addaction name="menudifficulty"/>
+    <addaction name="menueffecf"/>
+    <addaction name="menuenchant"/>
+    <addaction name="menuexecute"/>
+    <addaction name="menuexperience"/>
+    <addaction name="menufill"/>
+    <addaction name="menuforceload"/>
+    <addaction name="menufunction"/>
+    <addaction name="menugamemode"/>
+    <addaction name="menugamerule"/>
+    <addaction name="menugive"/>
+    <addaction name="menuhelp"/>
+    <addaction name="menuitem"/>
+    <addaction name="menukick"/>
+    <addaction name="menukill"/>
+    <addaction name="menulist"/>
+    <addaction name="menulocate"/>
+    <addaction name="menulocatebiome"/>
+    <addaction name="menuloot"/>
+    <addaction name="menume"/>
+    <addaction name="menumsg"/>
+    <addaction name="menuop"/>
+    <addaction name="menupardon"/>
+    <addaction name="menupardon_ip"/>
+    <addaction name="menuparticle"/>
+    <addaction name="menuperf"/>
+    <addaction name="menuplaysound"/>
+    <addaction name="menureload"/>
+    <addaction name="menurecipe"/>
+    <addaction name="menusay"/>
+    <addaction name="menusave_all"/>
+    <addaction name="menusave_off"/>
+    <addaction name="menusave_on"/>
+    <addaction name="menuschedule"/>
+    <addaction name="menuscoreboard"/>
+    <addaction name="menuseed"/>
+    <addaction name="menusetidletimeout"/>
+    <addaction name="menusetblock"/>
+    <addaction name="menuspawnpoint"/>
+    <addaction name="menusetworldspawn"/>
+    <addaction name="menuspectate"/>
+    <addaction name="menuspreadplayers"/>
+    <addaction name="menustop"/>
+    <addaction name="menustopsound"/>
+    <addaction name="menusummon"/>
+    <addaction name="menutag"/>
+    <addaction name="menuteam"/>
+    <addaction name="menuteammsg"/>
+    <addaction name="menutell"/>
+    <addaction name="menutm"/>
+    <addaction name="menuteleport"/>
+    <addaction name="menutp"/>
+    <addaction name="menutellraw"/>
+    <addaction name="menutime"/>
+    <addaction name="menutitle"/>
+    <addaction name="menutrigger"/>
+    <addaction name="menuweather"/>
+    <addaction name="menuworldborder"/>
+    <addaction name="menuw"/>
+    <addaction name="menuwhitelist"/>
+    <addaction name="menuxp"/>
+   </widget>
+   <addaction name="menuCommand"/>
+  </widget>
+  <action name="actiongrant">
+   <property name="text">
+    <string>grant</string>
+   </property>
+  </action>
+  <action name="actionrevoke">
+   <property name="text">
+    <string>revoke</string>
+   </property>
+  </action>
+  <action name="actionget">
+   <property name="text">
+    <string>get</string>
+   </property>
+  </action>
+  <action name="actionbase">
+   <property name="text">
+    <string>base</string>
+   </property>
+  </action>
+  <action name="actionmodifier">
+   <property name="text">
+    <string>modifier</string>
+   </property>
+  </action>
+  <action name="actionrun">
+   <property name="text">
+    <string>run</string>
+   </property>
+  </action>
+  <action name="actionif">
+   <property name="text">
+    <string>if</string>
+   </property>
+  </action>
+  <action name="actionunless">
+   <property name="text">
+    <string>unless</string>
+   </property>
+  </action>
+  <action name="actionas">
+   <property name="text">
+    <string>as</string>
+   </property>
+  </action>
+  <action name="actionat">
+   <property name="text">
+    <string>at</string>
+   </property>
+  </action>
+  <action name="actionstore">
+   <property name="text">
+    <string>store</string>
+   </property>
+  </action>
+  <action name="actionpositioned">
+   <property name="text">
+    <string>positioned</string>
+   </property>
+  </action>
+  <action name="actionrotated">
+   <property name="text">
+    <string>rotated</string>
+   </property>
+  </action>
+  <action name="actionfacing">
+   <property name="text">
+    <string>facing</string>
+   </property>
+  </action>
+  <action name="actionalign">
+   <property name="text">
+    <string>align</string>
+   </property>
+  </action>
+  <action name="actionanchored">
+   <property name="text">
+    <string>anchored</string>
+   </property>
+  </action>
+  <action name="actionin">
+   <property name="text">
+    <string>in</string>
+   </property>
+  </action>
+  <action name="actionadd">
+   <property name="text">
+    <string>add</string>
+   </property>
+  </action>
+  <action name="actionremove">
+   <property name="text">
+    <string>remove</string>
+   </property>
+  </action>
+  <action name="actionlist">
+   <property name="text">
+    <string>list</string>
+   </property>
+  </action>
+  <action name="actionset">
+   <property name="text">
+    <string>set</string>
+   </property>
+  </action>
+  <action name="actionget_2">
+   <property name="text">
+    <string>get</string>
+   </property>
+  </action>
+  <action name="action_targets">
+   <property name="text">
+    <string>[&lt;targets&gt;]</string>
+   </property>
+  </action>
+  <action name="action_begin_end_destination">
+   <property name="text">
+    <string>&lt;begin&gt; &lt;end&gt; &lt;destination&gt;</string>
+   </property>
+  </action>
+  <action name="actionreplace">
+   <property name="text">
+    <string>replace</string>
+   </property>
+  </action>
+  <action name="actionmasked">
+   <property name="text">
+    <string>masked</string>
+   </property>
+  </action>
+  <action name="actionfiltered">
+   <property name="text">
+    <string>filtered</string>
+   </property>
+  </action>
+  <action name="actionmerge">
+   <property name="text">
+    <string>merge</string>
+   </property>
+  </action>
+  <action name="actionget_3">
+   <property name="text">
+    <string>get</string>
+   </property>
+  </action>
+  <action name="actionremove_2">
+   <property name="text">
+    <string>remove</string>
+   </property>
+  </action>
+  <action name="actionmodify">
+   <property name="text">
+    <string>modify</string>
+   </property>
+  </action>
+  <action name="actionenable">
+   <property name="text">
+    <string>enable</string>
+   </property>
+  </action>
+  <action name="actiondisable_list">
+   <property name="text">
+    <string>disable|list</string>
+   </property>
+  </action>
+  <action name="actionstart">
+   <property name="text">
+    <string>start</string>
+   </property>
+  </action>
+  <action name="actionstop">
+   <property name="text">
+    <string>stop</string>
+   </property>
+  </action>
+  <action name="actionfunction">
+   <property name="text">
+    <string>function</string>
+   </property>
+  </action>
+  <action name="actionsurvival">
+   <property name="text">
+    <string>survival</string>
+   </property>
+  </action>
+  <action name="actioncreative">
+   <property name="text">
+    <string>creative</string>
+   </property>
+  </action>
+  <action name="actionadventure">
+   <property name="text">
+    <string>adventure</string>
+   </property>
+  </action>
+  <action name="actionspectator">
+   <property name="text">
+    <string>spectator</string>
+   </property>
+  </action>
+  <action name="actionpeaceful">
+   <property name="text">
+    <string>peaceful</string>
+   </property>
+  </action>
+  <action name="actioneasy">
+   <property name="text">
+    <string>easy</string>
+   </property>
+  </action>
+  <action name="actionnormal">
+   <property name="text">
+    <string>normal</string>
+   </property>
+  </action>
+  <action name="actionhard">
+   <property name="text">
+    <string>hard</string>
+   </property>
+  </action>
+  <action name="actionclear_2">
+   <property name="text">
+    <string>clear</string>
+   </property>
+  </action>
+  <action name="actiongive">
+   <property name="text">
+    <string>give</string>
+   </property>
+  </action>
+  <action name="action_action">
+   <property name="text">
+    <string>&lt;action&gt;</string>
+   </property>
+  </action>
+  <action name="actionmsg">
+   <property name="text">
+    <string>msg</string>
+   </property>
+  </action>
+  <action name="actiontell">
+   <property name="text">
+    <string>tell</string>
+   </property>
+  </action>
+  <action name="action_targets_enchantment_level">
+   <property name="text">
+    <string>&lt;targets&gt; &lt;enchantment&gt; [&lt;level&gt;]</string>
+   </property>
+  </action>
+  <action name="actionadd_2">
+   <property name="text">
+    <string>add</string>
+   </property>
+  </action>
+  <action name="actionset_2">
+   <property name="text">
+    <string>set</string>
+   </property>
+  </action>
+  <action name="actionquery">
+   <property name="text">
+    <string>query</string>
+   </property>
+  </action>
+  <action name="actionadd_3">
+   <property name="text">
+    <string>add</string>
+   </property>
+  </action>
+  <action name="actionset_3">
+   <property name="text">
+    <string>set</string>
+   </property>
+  </action>
+  <action name="actionquery_2">
+   <property name="text">
+    <string>query</string>
+   </property>
+  </action>
+  <action name="action_from_to_block">
+   <property name="text">
+    <string>&lt;from&gt; &lt;to&gt; &lt;block&gt;</string>
+   </property>
+  </action>
+  <action name="actionreplace_2">
+   <property name="text">
+    <string>replace</string>
+   </property>
+  </action>
+  <action name="actionkeep">
+   <property name="text">
+    <string>keep</string>
+   </property>
+  </action>
+  <action name="actionoutline">
+   <property name="text">
+    <string>outline</string>
+   </property>
+  </action>
+  <action name="actionhollow">
+   <property name="text">
+    <string>hollow</string>
+   </property>
+  </action>
+  <action name="actiondestroy">
+   <property name="text">
+    <string>destroy</string>
+   </property>
+  </action>
+  <action name="actionadd_4">
+   <property name="text">
+    <string>add</string>
+   </property>
+  </action>
+  <action name="actionremove_3">
+   <property name="text">
+    <string>remove</string>
+   </property>
+  </action>
+  <action name="actionquery_3">
+   <property name="text">
+    <string>query</string>
+   </property>
+  </action>
+  <action name="action_name">
+   <property name="text">
+    <string>&lt;name&gt;</string>
+   </property>
+  </action>
+  <action name="actionsurvival_2">
+   <property name="text">
+    <string>survival</string>
+   </property>
+  </action>
+  <action name="actioncreative_2">
+   <property name="text">
+    <string>creative</string>
+   </property>
+  </action>
+  <action name="actionadventure_2">
+   <property name="text">
+    <string>adventure</string>
+   </property>
+  </action>
+  <action name="actionspectator_2">
+   <property name="text">
+    <string>spectator</string>
+   </property>
+  </action>
+  <action name="actionannounceAdvancements">
+   <property name="text">
+    <string>announceAdvancements</string>
+   </property>
+  </action>
+  <action name="actioncommandBlockOutput">
+   <property name="text">
+    <string>commandBlockOutput</string>
+   </property>
+  </action>
+  <action name="actiondisableElytraMovementCheck">
+   <property name="text">
+    <string>disableElytraMovementCheck</string>
+   </property>
+  </action>
+  <action name="actiondisableRaids">
+   <property name="text">
+    <string>disableRaids</string>
+   </property>
+  </action>
+  <action name="actiondoDaylightCycle">
+   <property name="text">
+    <string>doDaylightCycle</string>
+   </property>
+  </action>
+  <action name="actiondoEntityDrops">
+   <property name="text">
+    <string>doEntityDrops</string>
+   </property>
+  </action>
+  <action name="actiondoFireTick">
+   <property name="text">
+    <string>doFireTick</string>
+   </property>
+  </action>
+  <action name="actiondoImmediateRespawn">
+   <property name="text">
+    <string>doImmediateRespawn</string>
+   </property>
+  </action>
+  <action name="actiondoInsomnia">
+   <property name="text">
+    <string>doInsomnia</string>
+   </property>
+  </action>
+  <action name="actiondoLimitedCrafting">
+   <property name="text">
+    <string>doLimitedCrafting</string>
+   </property>
+  </action>
+  <action name="actiondoMobLoot">
+   <property name="text">
+    <string>doMobLoot</string>
+   </property>
+  </action>
+  <action name="actiondoMobSpawning">
+   <property name="text">
+    <string>doMobSpawning</string>
+   </property>
+  </action>
+  <action name="actiondoPatrolSpawnin">
+   <property name="text">
+    <string>doPatrolSpawning</string>
+   </property>
+  </action>
+  <action name="actiondoTileDrops">
+   <property name="text">
+    <string>doTileDrops</string>
+   </property>
+  </action>
+  <action name="actiondoTraderSpawning">
+   <property name="text">
+    <string>doTraderSpawning</string>
+   </property>
+  </action>
+  <action name="actiondoWeatherCycle">
+   <property name="text">
+    <string>doWeatherCycle</string>
+   </property>
+  </action>
+  <action name="actiondrowningDamage">
+   <property name="text">
+    <string>drowningDamage</string>
+   </property>
+  </action>
+  <action name="actionfallDamage">
+   <property name="text">
+    <string>fallDamage</string>
+   </property>
+  </action>
+  <action name="actionforgiveDeadPlayers">
+   <property name="text">
+    <string>forgiveDeadPlayers</string>
+   </property>
+  </action>
+  <action name="actionfreezeDamage">
+   <property name="text">
+    <string>freezeDamage</string>
+   </property>
+  </action>
+  <action name="actionkeepInventory">
+   <property name="text">
+    <string>keepInventory</string>
+   </property>
+  </action>
+  <action name="actionlogAdminCommands">
+   <property name="text">
+    <string>logAdminCommands</string>
+   </property>
+  </action>
+  <action name="actionmaxCommandChainLength">
+   <property name="text">
+    <string>maxCommandChainLength</string>
+   </property>
+  </action>
+  <action name="actionmaxEntityCramming">
+   <property name="text">
+    <string>maxEntityCramming</string>
+   </property>
+  </action>
+  <action name="actionmobGriefing">
+   <property name="text">
+    <string>mobGriefing</string>
+   </property>
+  </action>
+  <action name="actionnaturalRegeneration">
+   <property name="text">
+    <string>naturalRegeneration</string>
+   </property>
+  </action>
+  <action name="actionplayersSleepingPercentage">
+   <property name="text">
+    <string>playersSleepingPercentage</string>
+   </property>
+  </action>
+  <action name="actionrandomTickSpeed">
+   <property name="text">
+    <string>randomTickSpeed</string>
+   </property>
+  </action>
+  <action name="actionreducedDebugInfo">
+   <property name="text">
+    <string>reducedDebugInfo</string>
+   </property>
+  </action>
+  <action name="actionsendCommandFeedback">
+   <property name="text">
+    <string>sendCommandFeedback</string>
+   </property>
+  </action>
+  <action name="actionshowDeathMessages">
+   <property name="text">
+    <string>showDeathMessages</string>
+   </property>
+  </action>
+  <action name="actionspawnRadius">
+   <property name="text">
+    <string>spawnRadius</string>
+   </property>
+  </action>
+  <action name="actionuniversalAnger">
+   <property name="text">
+    <string>universalAnger</string>
+   </property>
+  </action>
+  <action name="actionspectatorsGenerateChunks">
+   <property name="text">
+    <string>spectatorsGenerateChunks</string>
+   </property>
+  </action>
+  <action name="action_targets_item">
+   <property name="text">
+    <string>&lt;targets&gt; &lt;item&gt;</string>
+   </property>
+  </action>
+  <action name="action_count">
+   <property name="text">
+    <string>[&lt;count&gt;]</string>
+   </property>
+  </action>
+  <action name="actionShell">
+   <property name="text">
+    <string>Shell</string>
+   </property>
+  </action>
+  <action name="action_command">
+   <property name="text">
+    <string>[&lt;command&gt;]</string>
+   </property>
+  </action>
+  <action name="actionreplace_3">
+   <property name="text">
+    <string>replace</string>
+   </property>
+  </action>
+  <action name="actionmodify_2">
+   <property name="text">
+    <string>modify</string>
+   </property>
+  </action>
+  <action name="actionon">
+   <property name="text">
+    <string>on</string>
+   </property>
+  </action>
+  <action name="actionoff">
+   <property name="text">
+    <string>off</string>
+   </property>
+  </action>
+  <action name="actionlist_3">
+   <property name="text">
+    <string>list</string>
+   </property>
+  </action>
+  <action name="actionadd_5">
+   <property name="text">
+    <string>add</string>
+   </property>
+  </action>
+  <action name="actionremove_4">
+   <property name="text">
+    <string>remove</string>
+   </property>
+  </action>
+  <action name="actionreload_2">
+   <property name="text">
+    <string>reload</string>
+   </property>
+  </action>
+  <action name="action_targets_2">
+   <property name="text">
+    <string>&lt;targets&gt;</string>
+   </property>
+  </action>
+  <action name="action_reason">
+   <property name="text">
+    <string>[&lt;reason&gt;]</string>
+   </property>
+  </action>
+  <action name="action_targets_4">
+   <property name="text">
+    <string>[&lt;targets&gt;]</string>
+   </property>
+  </action>
+  <action name="actionShell_2">
+   <property name="text">
+    <string>Shell</string>
+   </property>
+  </action>
+  <action name="actionShell_3">
+   <property name="text">
+    <string>Shell</string>
+   </property>
+  </action>
+  <action name="action_uuid">
+   <property name="text">
+    <string>[uuid]</string>
+   </property>
+  </action>
+  <action name="actionpillager_outpost">
+   <property name="text">
+    <string>pillager_outpost</string>
+   </property>
+  </action>
+  <action name="action_mineshaft">
+   <property name="text">
+    <string>mineshaft</string>
+   </property>
+  </action>
+  <action name="actionmansion">
+   <property name="text">
+    <string>mansion</string>
+   </property>
+  </action>
+  <action name="actionjungle_pyramid">
+   <property name="text">
+    <string>jungle_pyramid</string>
+   </property>
+  </action>
+  <action name="actiondesert_pyramid">
+   <property name="text">
+    <string>desert_pyramid</string>
+   </property>
+  </action>
+  <action name="actionigloo">
+   <property name="text">
+    <string>igloo</string>
+   </property>
+  </action>
+  <action name="actionruined_portal">
+   <property name="text">
+    <string>ruined_portal</string>
+   </property>
+  </action>
+  <action name="actionshipwreck">
+   <property name="text">
+    <string>shipwreck</string>
+   </property>
+  </action>
+  <action name="actionswamp_hut">
+   <property name="text">
+    <string>swamp_hut</string>
+   </property>
+  </action>
+  <action name="actionstronghold">
+   <property name="text">
+    <string>stronghold</string>
+   </property>
+  </action>
+  <action name="actionmonument">
+   <property name="text">
+    <string>monument</string>
+   </property>
+  </action>
+  <action name="actionocean_ruin">
+   <property name="text">
+    <string>ocean_ruin</string>
+   </property>
+  </action>
+  <action name="actionfortress">
+   <property name="text">
+    <string>fortress</string>
+   </property>
+  </action>
+  <action name="actionendcity">
+   <property name="text">
+    <string>endcity</string>
+   </property>
+  </action>
+  <action name="actionburied_treasure">
+   <property name="text">
+    <string>buried_treasure</string>
+   </property>
+  </action>
+  <action name="actionvillage">
+   <property name="text">
+    <string>village</string>
+   </property>
+  </action>
+  <action name="actionnether_fossil">
+   <property name="text">
+    <string>nether_fossil</string>
+   </property>
+  </action>
+  <action name="actionbastion_remnant">
+   <property name="text">
+    <string>bastion_remnant</string>
+   </property>
+  </action>
+  <action name="action_biome">
+   <property name="text">
+    <string>&lt;biome&gt;</string>
+   </property>
+  </action>
+  <action name="actionreplace_4">
+   <property name="text">
+    <string>replace</string>
+   </property>
+  </action>
+  <action name="actioninsert">
+   <property name="text">
+    <string>insert</string>
+   </property>
+  </action>
+  <action name="actiongive_2">
+   <property name="text">
+    <string>give</string>
+   </property>
+  </action>
+  <action name="actionspawn">
+   <property name="text">
+    <string>spawn</string>
+   </property>
+  </action>
+  <action name="action_targets_message">
+   <property name="text">
+    <string>&lt;targets&gt; &lt;message&gt;</string>
+   </property>
+  </action>
+  <action name="action_targets_message_2">
+   <property name="text">
+    <string>&lt;targets&gt; &lt;message&gt;</string>
+   </property>
+  </action>
+  <action name="action_targets_message_3">
+   <property name="text">
+    <string>&lt;targets&gt; &lt;message&gt;</string>
+   </property>
+  </action>
+  <action name="action_name_2">
+   <property name="text">
+    <string>&lt;name&gt;</string>
+   </property>
+  </action>
+  <action name="action_pos">
+   <property name="text">
+    <string>[&lt;pos&gt;]</string>
+   </property>
+  </action>
+  <action name="actionmaster_music_record_weather_block_hostile_neutral_player_ambient_voice">
+   <property name="text">
+    <string>master|music|record|weather|block|hostile|neutral|player|ambient|voice</string>
+   </property>
+  </action>
+  <action name="actionmaster">
+   <property name="text">
+    <string>master</string>
+   </property>
+  </action>
+  <action name="actionmusic">
+   <property name="text">
+    <string>music</string>
+   </property>
+  </action>
+  <action name="actionrecord">
+   <property name="text">
+    <string>record</string>
+   </property>
+  </action>
+  <action name="actionweather_2">
+   <property name="text">
+    <string>weather</string>
+   </property>
+  </action>
+  <action name="actionblock">
+   <property name="text">
+    <string>block</string>
+   </property>
+  </action>
+  <action name="actionhostile">
+   <property name="text">
+    <string>hostile</string>
+   </property>
+  </action>
+  <action name="actionneutral">
+   <property name="text">
+    <string>neutral</string>
+   </property>
+  </action>
+  <action name="actionplayer">
+   <property name="text">
+    <string>player</string>
+   </property>
+  </action>
+  <action name="actionambient">
+   <property name="text">
+    <string>ambient</string>
+   </property>
+  </action>
+  <action name="actionvoice">
+   <property name="text">
+    <string>voice</string>
+   </property>
+  </action>
+  <action name="actionShell_4">
+   <property name="text">
+    <string>Shell</string>
+   </property>
+  </action>
+  <action name="action_message">
+   <property name="text">
+    <string>&lt;message&gt;</string>
+   </property>
+  </action>
+  <action name="actiongive_3">
+   <property name="text">
+    <string>give</string>
+   </property>
+  </action>
+  <action name="actiontake">
+   <property name="text">
+    <string>take</string>
+   </property>
+  </action>
+  <action name="actionfunction_2">
+   <property name="text">
+    <string>function</string>
+   </property>
+  </action>
+  <action name="actionclear">
+   <property name="text">
+    <string>clear</string>
+   </property>
+  </action>
+  <action name="actionobjectives">
+   <property name="text">
+    <string>objectives</string>
+   </property>
+  </action>
+  <action name="actionplayers">
+   <property name="text">
+    <string>players</string>
+   </property>
+  </action>
+  <action name="actionShell_5">
+   <property name="text">
+    <string>Shell</string>
+   </property>
+  </action>
+  <action name="actiondestroy_2">
+   <property name="text">
+    <string>destroy</string>
+   </property>
+  </action>
+  <action name="actionkeep_2">
+   <property name="text">
+    <string>keep</string>
+   </property>
+  </action>
+  <action name="actionreplace_5">
+   <property name="text">
+    <string>replace</string>
+   </property>
+  </action>
+  <action name="actionShell_6">
+   <property name="text">
+    <string>Shell</string>
+   </property>
+  </action>
+  <action name="action_targets_5">
+   <property name="text">
+    <string>[&lt;targets&gt;]</string>
+   </property>
+  </action>
+  <action name="actionShell_7">
+   <property name="text">
+    <string>Shell</string>
+   </property>
+  </action>
+  <action name="action_pos_2">
+   <property name="text">
+    <string>[&lt;pos&gt;]</string>
+   </property>
+  </action>
+  <action name="actionShell_8">
+   <property name="text">
+    <string>Shell</string>
+   </property>
+  </action>
+  <action name="action_target">
+   <property name="text">
+    <string>[&lt;target&gt;]</string>
+   </property>
+  </action>
+  <action name="action_respectTeams">
+   <property name="text">
+    <string>&lt;respectTeams&gt;</string>
+   </property>
+  </action>
+  <action name="actionunder">
+   <property name="text">
+    <string>under</string>
+   </property>
+  </action>
+  <action name="action_targets_6">
+   <property name="text">
+    <string>&lt;targets&gt;</string>
+   </property>
+  </action>
+  <action name="action_3">
+   <property name="text">
+    <string>*</string>
+   </property>
+  </action>
+  <action name="actionmaster_2">
+   <property name="text">
+    <string>master</string>
+   </property>
+  </action>
+  <action name="actionmusic_2">
+   <property name="text">
+    <string>music</string>
+   </property>
+  </action>
+  <action name="actionrecord_2">
+   <property name="text">
+    <string>record</string>
+   </property>
+  </action>
+  <action name="actionweather_3">
+   <property name="text">
+    <string>weather</string>
+   </property>
+  </action>
+  <action name="actionblock_2">
+   <property name="text">
+    <string>block</string>
+   </property>
+  </action>
+  <action name="actionhostile_2">
+   <property name="text">
+    <string>hostile</string>
+   </property>
+  </action>
+  <action name="actionneutral_2">
+   <property name="text">
+    <string>neutral</string>
+   </property>
+  </action>
+  <action name="actionplayer_2">
+   <property name="text">
+    <string>player</string>
+   </property>
+  </action>
+  <action name="actionambient_2">
+   <property name="text">
+    <string>ambient</string>
+   </property>
+  </action>
+  <action name="actionvoice_2">
+   <property name="text">
+    <string>voice</string>
+   </property>
+  </action>
+  <action name="action_entity">
+   <property name="text">
+    <string>&lt;entity&gt;</string>
+   </property>
+  </action>
+  <action name="action_pos_3">
+   <property name="text">
+    <string>[&lt;pos&gt;]</string>
+   </property>
+  </action>
+  <action name="actionadd_6">
+   <property name="text">
+    <string>add</string>
+   </property>
+  </action>
+  <action name="actionremove_5">
+   <property name="text">
+    <string>remove</string>
+   </property>
+  </action>
+  <action name="actionlist_4">
+   <property name="text">
+    <string>list</string>
+   </property>
+  </action>
+  <action name="actionlist_5">
+   <property name="text">
+    <string>list</string>
+   </property>
+  </action>
+  <action name="actionadd_7">
+   <property name="text">
+    <string>add</string>
+   </property>
+  </action>
+  <action name="actionremove_6">
+   <property name="text">
+    <string>remove</string>
+   </property>
+  </action>
+  <action name="actionempty">
+   <property name="text">
+    <string>empty</string>
+   </property>
+  </action>
+  <action name="actionjoin">
+   <property name="text">
+    <string>join</string>
+   </property>
+  </action>
+  <action name="actionleave">
+   <property name="text">
+    <string>leave</string>
+   </property>
+  </action>
+  <action name="actionmodify_3">
+   <property name="text">
+    <string>modify</string>
+   </property>
+  </action>
+  <action name="action_message_2">
+   <property name="text">
+    <string>&lt;message&gt;</string>
+   </property>
+  </action>
+  <action name="action_location">
+   <property name="text">
+    <string>&lt;location&gt;</string>
+   </property>
+  </action>
+  <action name="action_destination">
+   <property name="text">
+    <string>&lt;destination&gt;</string>
+   </property>
+  </action>
+  <action name="action_targets_9">
+   <property name="text">
+    <string>&lt;targets&gt;</string>
+   </property>
+  </action>
+  <action name="action_targets_message_4">
+   <property name="text">
+    <string>&lt;targets&gt; &lt;message&gt;</string>
+   </property>
+  </action>
+  <action name="actionadd_8">
+   <property name="text">
+    <string>add</string>
+   </property>
+  </action>
+  <action name="actionquery_4">
+   <property name="text">
+    <string>query</string>
+   </property>
+  </action>
+  <action name="actionday">
+   <property name="text">
+    <string>day</string>
+   </property>
+  </action>
+  <action name="actionnoon">
+   <property name="text">
+    <string>noon</string>
+   </property>
+  </action>
+  <action name="actionnight">
+   <property name="text">
+    <string>night</string>
+   </property>
+  </action>
+  <action name="actionmidnight">
+   <property name="text">
+    <string>midnight</string>
+   </property>
+  </action>
+  <action name="actionclear_3">
+   <property name="text">
+    <string>clear</string>
+   </property>
+  </action>
+  <action name="actionreset">
+   <property name="text">
+    <string>reset</string>
+   </property>
+  </action>
+  <action name="actiontitle_2">
+   <property name="text">
+    <string>title</string>
+   </property>
+  </action>
+  <action name="actionsubtitle">
+   <property name="text">
+    <string>subtitle</string>
+   </property>
+  </action>
+  <action name="actionactionbar">
+   <property name="text">
+    <string>actionbar</string>
+   </property>
+  </action>
+  <action name="actiontimes">
+   <property name="text">
+    <string>times</string>
+   </property>
+  </action>
+  <action name="actionadd_9">
+   <property name="text">
+    <string>add</string>
+   </property>
+  </action>
+  <action name="actionset_5">
+   <property name="text">
+    <string>set</string>
+   </property>
+  </action>
+  <action name="actionclear_4">
+   <property name="text">
+    <string>clear</string>
+   </property>
+  </action>
+  <action name="actionrain">
+   <property name="text">
+    <string>rain</string>
+   </property>
+  </action>
+  <action name="actionthunder">
+   <property name="text">
+    <string>thunder</string>
+   </property>
+  </action>
+  <action name="actionadd_10">
+   <property name="text">
+    <string>add</string>
+   </property>
+  </action>
+  <action name="actionset_6">
+   <property name="text">
+    <string>set</string>
+   </property>
+  </action>
+  <action name="actioncenter">
+   <property name="text">
+    <string>center</string>
+   </property>
+  </action>
+  <action name="actiondamage">
+   <property name="text">
+    <string>damage</string>
+   </property>
+  </action>
+  <action name="actionget_4">
+   <property name="text">
+    <string>get</string>
+   </property>
+  </action>
+  <action name="actionwarning">
+   <property name="text">
+    <string>warning</string>
+   </property>
+  </action>
+  <action name="action_target_2">
+   <property name="text">
+    <string>&lt;target&gt;</string>
+   </property>
+  </action>
+  <action name="action_reason_2">
+   <property name="text">
+    <string>[&lt;reason&gt;]</string>
+   </property>
+  </action>
+  <action name="actionips">
+   <property name="text">
+    <string>ips</string>
+   </property>
+  </action>
+  <action name="actionplayers_2">
+   <property name="text">
+    <string>players</string>
+   </property>
+  </action>
+  <action name="action_targets_11">
+   <property name="text">
+    <string>&lt;targets&gt;</string>
+   </property>
+  </action>
+  <action name="action_reason_3">
+   <property name="text">
+    <string>[&lt;reason&gt;]</string>
+   </property>
+  </action>
+  <action name="action_targets_13">
+   <property name="text">
+    <string>&lt;targets&gt;</string>
+   </property>
+  </action>
+  <action name="action_targets_14">
+   <property name="text">
+    <string>&lt;targets&gt;</string>
+   </property>
+  </action>
+  <action name="action_targets_15">
+   <property name="text">
+    <string>&lt;targets&gt;</string>
+   </property>
+  </action>
+  <action name="action_targets_16">
+   <property name="text">
+    <string>&lt;targets&gt;</string>
+   </property>
+  </action>
+  <action name="actionstart_2">
+   <property name="text">
+    <string>start</string>
+   </property>
+  </action>
+  <action name="actionstop_3">
+   <property name="text">
+    <string>stop</string>
+   </property>
+  </action>
+  <action name="actionShell_9">
+   <property name="text">
+    <string>Shell</string>
+   </property>
+  </action>
+  <action name="action_flush">
+   <property name="text">
+    <string>[flush]</string>
+   </property>
+  </action>
+  <action name="actionShell_10">
+   <property name="text">
+    <string>Shell</string>
+   </property>
+  </action>
+  <action name="actionShell_11">
+   <property name="text">
+    <string>Shell</string>
+   </property>
+  </action>
+  <action name="action_minutes">
+   <property name="text">
+    <string>&lt;minutes&gt;</string>
+   </property>
+  </action>
+  <action name="actionShell_12">
+   <property name="text">
+    <string>Shell</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
