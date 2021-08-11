@@ -5,20 +5,29 @@ MCServerHelper::MCServerHelper(QWidget* parent)
 {
 	ui.setupUi(this);
 	ie = new iniEdit(this);
+	pi = new PlayerInfo(this);
 	UpdateSettings();
+	pi->ReadPlayerInfo();
+	//pi->WritePlayerInfo();
+	PlayerInfo2Table();
 	QTranslator translator;
+	QTranslator translator2;
 	if (ie->ReadMyINI(QString("Language")) == "zh_cn")
 	{
 		translator.load(":/language/mcserverhelper_zh.qm");
+		translator2.load(":/language/qt_zh_CN.qm");
 		ui.radChinese->setChecked(true);
 	}
 	else
 	{
 		translator.load(":/language/mcserverhelper_en.qm");
+		translator2.load(":/language/qt_en.qm");
 	}
 	qApp->installTranslator(&translator);
 	ui.retranslateUi(this);
 	ui.menuBar->hide();
+	ui.frmUpdateInfo->raise();
+	ui.frmUpdateInfo->hide();
 	this->setFixedSize(this->width(), this->height());
 	this->setWindowTitle(QString("MCServerHelper v") + VERSION + " By:Brownlzy");
 	m_server = new QProcess(this);
@@ -34,7 +43,7 @@ MCServerHelper::MCServerHelper(QWidget* parent)
 	ui.btnServerInput->setEnabled(false);
 	ui.btnDoUpdate->setEnabled(false);
 	ui.labAbout->setText(QString(tr("Build Time: ")) + __TIMESTAMP__);
-	ui.frmUpdateInfo->move(0, 110);
+	ui.frmUpdateInfo->move(0, 130);
 	connect(m_server, SIGNAL(readyReadStandardOutput()), this, SLOT(onServerOutput()));
 	connect(m_frp, SIGNAL(readyReadStandardOutput()), this, SLOT(onFrpOutput()));
 	connect(ui.btnServerStart, SIGNAL(clicked()), this, SLOT(ServerStart()));
@@ -142,14 +151,38 @@ QString MCServerHelper::ChangeTextColorS(QString oText)
 	QString colorText = "";
 	for (int i = 0; i <= oText.contains("<br/>"); i++)
 	{
+		QString forStr = oText.split("<br/>")[i];
 		colorText += "<span style=\"color:";
-		if (oText.split("<br/>")[i].contains("ERROR") || oText.split("<br/>")[i].contains("错误"))
+		if (forStr.contains("ERROR") || forStr.contains("错误"))
 			colorText += "red;\">";
-		else if (oText.contains("[") && oText.contains("]") && oText.split("<br/>")[i].split("[")[2].split("]")[0].contains("INFO"))
-			colorText += "green;\">";
-		else if (oText.contains("[") && oText.contains("]") && oText.split("<br/>")[i].split("[")[2].split("]")[0].contains("WARN"))
+		else if (forStr.contains("[") && forStr.contains("]") && forStr.split("[")[2].split("]")[0].contains("INFO"))
+		{
+			if (forStr.contains("[User Authenticator #") && forStr.contains("UUID of player"))
+			{
+				LoginTmp = forStr.split("/INFO]: UUID of player ")[1].split(" is ")[0] + ":" + forStr.split("/INFO]: UUID of player ")[1].split(" is ")[1].split("\r")[0];
+				colorText += "#087CFA;\">";
+			}
+			else if (!forStr.contains("&lt;") && forStr.contains("logged in with entity id"))
+			{
+				colorText += "#087CFA;\">";
+				if (forStr.contains(LoginTmp.split(":")[0]))
+					PlayerLogined(LoginTmp.split(":")[0], LoginTmp.split(":")[1], forStr.split(LoginTmp.split(":")[0])[1].split(" ")[0]);
+			}
+			else if (!forStr.contains("&lt;") && forStr.contains("joined the game"))
+				colorText += "#087CFA;\">";
+			else if (!forStr.contains("&lt;") && forStr.contains("lost connection: "))
+			{
+				colorText += "#6A3C97;\">";
+				PlayerLosted(forStr.split("[Server thread/INFO]: ")[1].split(" ")[0], forStr.split("lost connection: ")[1]);
+			}
+			else if (!forStr.contains("&lt;") && forStr.contains(" left the game"))
+				colorText += "#6A3C97;\">";
+			else
+				colorText += "green;\">";
+		}
+		else if (forStr.contains("[") && forStr.contains("]") && forStr.split("[")[2].split("]")[0].contains("WARN"))
 			colorText += "#ff7e00;\">";
-		else if (oText.contains("[") && oText.contains("]") && oText.split("<br/>")[i].split("[")[2].split("]")[0].contains("FATAL"))
+		else if (forStr.contains("[") && forStr.contains("]") && forStr.split("[")[2].split("]")[0].contains("FATAL"))
 			colorText += "red;\">";
 		else
 			colorText += "red;\">";
@@ -193,6 +226,82 @@ void MCServerHelper::Donate()
 	plab->setToolTip(tr("Note: sponsorship is free and voluntary"));
 	plab->setWindowFlags(Qt::WindowCloseButtonHint | Qt::WindowStaysOnTopHint);
 	plab->show();
+}
+
+void MCServerHelper::PlayerInfo2Table()
+{
+	ui.PlayerList->setRowCount(pi->numPlayer);//把行数设置为用户数
+	for (int i = 0; i < pi->numPlayer; i++)
+	{
+		ui.PlayerList->setItem(i, 0, new QTableWidgetItem(pi->pPlayer[i].ID));
+		ui.PlayerList->setItem(i, 1, new QTableWidgetItem(pi->pPlayer[i].UUID));
+		ui.PlayerList->setItem(i, 2, new QTableWidgetItem(pi->pPlayer[i].LastLogin));
+		ui.PlayerList->setItem(i, 3, new QTableWidgetItem(pi->pPlayer[i].LastLost));
+		ui.PlayerList->setItem(i, 4, new QTableWidgetItem(pi->pPlayer[i].OPLevel ? "OPLevel:" + QString::number(pi->pPlayer[i].OPLevel) : "x"));
+		ui.PlayerList->setItem(i, 5, new QTableWidgetItem(pi->pPlayer[i].isWhitelist ? "Whited" : "x"));
+		ui.PlayerList->setItem(i, 6, new QTableWidgetItem(pi->pPlayer[i].LastIP));
+		ui.PlayerList->setItem(i, 7, new QTableWidgetItem(pi->pPlayer[i].isBanned ? "Banned" : "x"));
+		if (pi->pPlayer[i].isBanned)ui.PlayerList->item(i, 0)->setTextColor(QColor("red"));
+	}
+}
+
+void MCServerHelper::PlayerInfo4Table()
+{
+	delete[] pi->pPlayer2;
+	pi->pPlayer2 = new Player[ui.PlayerList->rowCount()];
+	for (int i = 0; i < ui.PlayerList->rowCount(); i++)
+	{
+		pi->pPlayer2[i].ID = ui.PlayerList->item(i, 0)->text();
+		pi->pPlayer2[i].UUID = ui.PlayerList->item(i, 1)->text();
+		if (pi->getPlayerInfoIndex(pi->pPlayer2[i].ID, pi->pPlayer2[i].UUID) < 0 || pi->pPlayer[pi->getPlayerInfoIndex(pi->pPlayer2[i].ID, pi->pPlayer2[i].UUID)].FirstLogin == "")
+			pi->pPlayer2[i].FirstLogin = ui.PlayerList->item(i, 2)->text();
+		else
+			pi->pPlayer2[i].FirstLogin = pi->pPlayer[pi->getPlayerInfoIndex(pi->pPlayer2[i].ID, pi->pPlayer2[i].UUID)].FirstLogin;
+		pi->pPlayer2[i].LastIP = ui.PlayerList->item(i, 6)->text();
+		pi->pPlayer2[i].LastLogin = ui.PlayerList->item(i, 2)->text();
+		pi->pPlayer2[i].LastLost = ui.PlayerList->item(i, 3)->text();
+	}
+	pi->storePlayerHistory(pi->pPlayer2, ui.PlayerList->rowCount());
+	pi->WriteJson<PlayerHistory>(ui.PlayerList->rowCount(), pi->pPlayerHistory, qApp->applicationDirPath().toStdString() + "/Server/player-history.json");
+}
+
+void MCServerHelper::PlayerLogined(QString uName, QString uUUID, QString uIP)
+{
+	int flag = 0;
+	for (int i = 0; i < ui.PlayerList->rowCount() && flag == 0; i++)
+	{
+		if (ui.PlayerList->item(i, 0)->text() == uName && ui.PlayerList->item(i, 1)->text() == uUUID)
+		{
+			ui.PlayerList->item(i, 0)->setTextColor(QColor("green"));
+			ui.PlayerList->item(i, 6)->setText(uIP);
+			ui.PlayerList->item(i, 2)->setText(ui.labSysTime->text());
+			flag = 1;
+		}
+	}
+	if (!flag)
+	{
+		ui.PlayerList->setRowCount(ui.PlayerList->rowCount() + 1);//把行数设置为用户数
+		ui.PlayerList->setItem(ui.PlayerList->rowCount() - 1, 0, new QTableWidgetItem(uName));
+		ui.PlayerList->setItem(ui.PlayerList->rowCount() - 1, 1, new QTableWidgetItem(uUUID));
+		ui.PlayerList->setItem(ui.PlayerList->rowCount() - 1, 2, new QTableWidgetItem(ui.labSysTime->text()));
+		ui.PlayerList->setItem(ui.PlayerList->rowCount() - 1, 3, new QTableWidgetItem("-"));
+		ui.PlayerList->setItem(ui.PlayerList->rowCount() - 1, 4, new QTableWidgetItem("x"));
+		ui.PlayerList->setItem(ui.PlayerList->rowCount() - 1, 5, new QTableWidgetItem("x"));
+		ui.PlayerList->setItem(ui.PlayerList->rowCount() - 1, 6, new QTableWidgetItem(uIP));
+		ui.PlayerList->setItem(ui.PlayerList->rowCount() - 1, 7, new QTableWidgetItem("x"));
+	}
+}
+
+void MCServerHelper::PlayerLosted(QString uName, QString reason)
+{
+	for (int i = 0; i < ui.PlayerList->rowCount(); i++)
+	{
+		if (ui.PlayerList->item(i, 0)->text() == uName)
+		{
+			ui.PlayerList->item(i, 0)->setTextColor(QColor("black"));
+			ui.PlayerList->item(i, 3)->setText(ui.labSysTime->text());
+		}
+	}
 }
 
 void MCServerHelper::onFrpOutput()
@@ -314,6 +423,7 @@ void MCServerHelper::closeEvent(QCloseEvent* event)
 	ie->WriteMyINI();
 	m_frp->terminate();
 	m_frp->kill();
+	PlayerInfo4Table();
 }
 
 void MCServerHelper::timeTik()
@@ -326,6 +436,7 @@ void MCServerHelper::tabChanged(int tabid)
 {
 	if (tabid == 6)
 	{
+		ui.frmUpdateInfo->show();
 		ui.labAbout->setToolTip("");
 		if (!Update::isChecked)
 		{
@@ -362,6 +473,10 @@ void MCServerHelper::tabChanged(int tabid)
 			}
 		}
 	}
+	else
+	{
+		ui.frmUpdateInfo->hide();
+	}
 }
 
 void MCServerHelper::ShowUpdateInfo()
@@ -372,7 +487,7 @@ void MCServerHelper::ShowUpdateInfo()
 		pUpdateFrm->stop();
 		pUpdateFrm->setDuration(1000);
 		pUpdateFrm->setStartValue(QPoint(ui.frmUpdateInfo->x(), ui.frmUpdateInfo->y()));
-		pUpdateFrm->setEndValue(QPoint(0, -34));
+		pUpdateFrm->setEndValue(QPoint(0, -10));
 		pUpdateFrm->setEasingCurve(QEasingCurve::InOutQuad);
 		pUpdateFrm->start();
 	}
@@ -382,7 +497,7 @@ void MCServerHelper::ShowUpdateInfo()
 		pUpdateFrm->stop();
 		pUpdateFrm->setDuration(1000);
 		pUpdateFrm->setStartValue(QPoint(ui.frmUpdateInfo->x(), ui.frmUpdateInfo->y()));
-		pUpdateFrm->setEndValue(QPoint(0, 110));
+		pUpdateFrm->setEndValue(QPoint(0, 130));
 		pUpdateFrm->setEasingCurve(QEasingCurve::InOutQuad);
 		pUpdateFrm->start();
 	}
@@ -398,6 +513,7 @@ void MCServerHelper::btnDoUpdate()
 	}
 	else
 	{
+		ui.labAbout->setToolTip("");
 		ui.btnDoUpdate->setEnabled(false);
 		pUpdate->doUpdate();
 	}
@@ -406,14 +522,17 @@ void MCServerHelper::btnDoUpdate()
 void MCServerHelper::ChangeLanguage()
 {
 	QTranslator translator;
+	QTranslator translator2;
 	if (ui.radChinese->isChecked())
 	{
 		translator.load(":/language/mcserverhelper_zh.qm");
+		translator2.load(":/language/qt_zh_CN.qm");
 		ui.radChinese->setChecked(true);
 	}
 	else
 	{
 		translator.load(":/language/mcserverhelper_en.qm");
+		translator2.load(":/language/qt_en.qm");
 	}
 	qApp->installTranslator(&translator);
 	ui.retranslateUi(this);
@@ -423,7 +542,7 @@ void MCServerHelper::ChangeLanguage()
 
 void MCServerHelper::MenuCommand()
 {
-	QMenu* popMenu = new QMenu(this);//定义一个右键弹出菜单
-	popMenu->addMenu(ui.menuCommand);
+	QMenu* popMenu = ui.menuCommand;//new QMenu(this);//定义一个右键弹出菜单
+	//popMenu->addMenu(ui.menuCommand);
 	popMenu->exec(QCursor::pos());//弹出右键菜单，菜单位置为光标位置
 }

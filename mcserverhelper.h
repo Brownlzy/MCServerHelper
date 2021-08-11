@@ -5,6 +5,7 @@
 #include "iniedit.h"
 #include "appinfo.h"
 #include "update.h"
+#include "playerinfo.h"
 #include <QProcess>
 #include <QMessageBox>
 #include <QTime>
@@ -25,6 +26,10 @@ public:
 	QString ChangeTextColorS(QString oText);
 	QString ChangeTextColorF(QString oText);
 	void Donate();
+	void PlayerInfo2Table();
+	void PlayerInfo4Table();
+	void PlayerLogined(QString uName, QString uUUID, QString uIP);
+	void PlayerLosted(QString uName, QString reason);
 
 private:
 	Ui::MCServerHelperClass ui;
@@ -33,6 +38,8 @@ private:
 	QProcess* m_frp = nullptr;
 	QPropertyAnimation* pUpdateFrm = nullptr;
 	Update* pUpdate = nullptr;
+	PlayerInfo* pi = nullptr;
+	QString LoginTmp = "";
 
 public slots:
 	void onServerOutput();

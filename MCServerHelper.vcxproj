@@ -85,6 +85,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="playerinfo.cpp" />
     <ClCompile Include="update.cpp" />
     <QtRcc Include="mcserverhelper.qrc" />
     <QtUic Include="mcserverhelper.ui" />
@@ -102,7 +103,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="appinfo.h" />
+    <ClInclude Include="json.hpp" />
+    <QtMoc Include="playerinfo.h" />
     <QtMoc Include="update.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="docs\OTAinfo.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

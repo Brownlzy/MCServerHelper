@@ -6,5 +6,7 @@
     <qresource prefix="/language">
         <file>mcserverhelper_zh.qm</file>
         <file>mcserverhelper_en.qm</file>
+        <file>qt_zh_CN.qm</file>
+        <file>qt_en.qm</file>
     </qresource>
 </RCC>

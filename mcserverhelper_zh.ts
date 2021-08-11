@@ -4,23 +4,23 @@
 <context>
     <name>MCServerHelper</name>
     <message>
-        <location filename="mcserverhelper.cpp" line="36"/>
-        <location filename="mcserverhelper.cpp" line="420"/>
+        <location filename="mcserverhelper.cpp" line="45"/>
+        <location filename="mcserverhelper.cpp" line="536"/>
         <source>Build Time: </source>
         <translation>编译时间: </translation>
     </message>
     <message>
-        <location filename="mcserverhelper.cpp" line="193"/>
+        <location filename="mcserverhelper.cpp" line="226"/>
         <source>Note: sponsorship is free and voluntary</source>
         <translation>注意:赞赏是自愿且无偿的</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.cpp" line="310"/>
+        <location filename="mcserverhelper.cpp" line="416"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.cpp" line="310"/>
+        <location filename="mcserverhelper.cpp" line="416"/>
         <source>Minrcraft Server is still running,
 in order to avoid damaging world data,
 please stop it brfore closing MCServerHelper!</source>
@@ -33,7 +33,7 @@ please stop it brfore closing MCServerHelper!</source>
     <name>MCServerHelperClass</name>
     <message>
         <location filename="mcserverhelper.ui" line="14"/>
-        <location filename="mcserverhelper.ui" line="1113"/>
+        <location filename="mcserverhelper.ui" line="1123"/>
         <source>MCServerHelper</source>
         <translation>MCServerHelper</translation>
     </message>
@@ -53,14 +53,14 @@ please stop it brfore closing MCServerHelper!</source>
         <translation>玩家列表</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="426"/>
+        <location filename="mcserverhelper.ui" line="436"/>
         <source>Frp Settings</source>
         <translation>Frp设置</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="339"/>
-        <location filename="mcserverhelper.ui" line="464"/>
-        <location filename="mcserverhelper.ui" line="853"/>
+        <location filename="mcserverhelper.ui" line="349"/>
+        <location filename="mcserverhelper.ui" line="474"/>
+        <location filename="mcserverhelper.ui" line="863"/>
         <source>Confirm</source>
         <translation>确认</translation>
     </message>
@@ -78,18 +78,18 @@ please stop it brfore closing MCServerHelper!</source>
     </message>
     <message>
         <location filename="mcserverhelper.ui" line="112"/>
-        <location filename="mcserverhelper.ui" line="2619"/>
-        <location filename="mcserverhelper.ui" line="2684"/>
-        <location filename="mcserverhelper.ui" line="2689"/>
-        <location filename="mcserverhelper.ui" line="2894"/>
-        <location filename="mcserverhelper.ui" line="2934"/>
-        <location filename="mcserverhelper.ui" line="2954"/>
-        <location filename="mcserverhelper.ui" line="2964"/>
-        <location filename="mcserverhelper.ui" line="2974"/>
-        <location filename="mcserverhelper.ui" line="3314"/>
-        <location filename="mcserverhelper.ui" line="3324"/>
-        <location filename="mcserverhelper.ui" line="3329"/>
-        <location filename="mcserverhelper.ui" line="3339"/>
+        <location filename="mcserverhelper.ui" line="2631"/>
+        <location filename="mcserverhelper.ui" line="2696"/>
+        <location filename="mcserverhelper.ui" line="2701"/>
+        <location filename="mcserverhelper.ui" line="2906"/>
+        <location filename="mcserverhelper.ui" line="2946"/>
+        <location filename="mcserverhelper.ui" line="2966"/>
+        <location filename="mcserverhelper.ui" line="2976"/>
+        <location filename="mcserverhelper.ui" line="2986"/>
+        <location filename="mcserverhelper.ui" line="3326"/>
+        <location filename="mcserverhelper.ui" line="3336"/>
+        <location filename="mcserverhelper.ui" line="3341"/>
+        <location filename="mcserverhelper.ui" line="3351"/>
         <source>Shell</source>
         <translation>执行</translation>
     </message>
@@ -114,1466 +114,1476 @@ please stop it brfore closing MCServerHelper!</source>
         <translation>ID</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="232"/>
-        <location filename="mcserverhelper.ui" line="266"/>
+        <location filename="mcserverhelper.ui" line="247"/>
+        <location filename="mcserverhelper.ui" line="276"/>
         <source>OP</source>
         <translation>管理员权限</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="237"/>
+        <location filename="mcserverhelper.ui" line="252"/>
         <source>WhiteList</source>
         <translation>白名单</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="242"/>
+        <location filename="mcserverhelper.ui" line="237"/>
         <source>LastLoginTime</source>
         <translation>上次登录时间</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="247"/>
+        <location filename="mcserverhelper.ui" line="242"/>
         <source>LastLeaveTime</source>
         <translation>上次离开时间</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="252"/>
+        <location filename="mcserverhelper.ui" line="232"/>
         <source>UUID</source>
         <translation>UUID</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="295"/>
+        <location filename="mcserverhelper.ui" line="257"/>
+        <source>LastIP</source>
+        <translation>上次登录IP</translation>
+    </message>
+    <message>
+        <location filename="mcserverhelper.ui" line="262"/>
+        <source>Banned</source>
+        <translation>封禁</translation>
+    </message>
+    <message>
+        <location filename="mcserverhelper.ui" line="305"/>
         <source>Kick</source>
         <translation>踢出服务器</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="308"/>
+        <location filename="mcserverhelper.ui" line="318"/>
         <source>System Time:</source>
         <translation>系统时间：</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="321"/>
+        <location filename="mcserverhelper.ui" line="331"/>
         <source> YY/MM/DD hh:mm:ss</source>
         <translation> YY/MM/DD hh:mm:ss</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="327"/>
+        <location filename="mcserverhelper.ui" line="337"/>
         <source>Server Settings</source>
         <translation>服务器设置</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="368"/>
-        <location filename="mcserverhelper.ui" line="477"/>
-        <location filename="mcserverhelper.ui" line="866"/>
+        <location filename="mcserverhelper.ui" line="378"/>
+        <location filename="mcserverhelper.ui" line="487"/>
+        <location filename="mcserverhelper.ui" line="876"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="404"/>
-        <location filename="mcserverhelper.ui" line="972"/>
+        <location filename="mcserverhelper.ui" line="414"/>
+        <location filename="mcserverhelper.ui" line="982"/>
         <source>.\Server\</source>
         <translation>.\Server\</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="516"/>
-        <location filename="mcserverhelper.ui" line="529"/>
-        <location filename="mcserverhelper.ui" line="985"/>
-        <location filename="mcserverhelper.ui" line="998"/>
+        <location filename="mcserverhelper.ui" line="526"/>
+        <location filename="mcserverhelper.ui" line="539"/>
+        <location filename="mcserverhelper.ui" line="995"/>
+        <location filename="mcserverhelper.ui" line="1008"/>
         <source>.\FRP\</source>
         <translation>.\FRP\</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="882"/>
-        <location filename="mcserverhelper.ui" line="898"/>
-        <location filename="mcserverhelper.ui" line="914"/>
-        <location filename="mcserverhelper.ui" line="930"/>
+        <location filename="mcserverhelper.ui" line="892"/>
+        <location filename="mcserverhelper.ui" line="908"/>
+        <location filename="mcserverhelper.ui" line="924"/>
+        <location filename="mcserverhelper.ui" line="940"/>
         <source>Broswe</source>
         <translation>浏览</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1027"/>
+        <location filename="mcserverhelper.ui" line="1037"/>
         <source>English</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1043"/>
+        <location filename="mcserverhelper.ui" line="1053"/>
         <source>简体中文</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1056"/>
+        <location filename="mcserverhelper.ui" line="1066"/>
         <source>更改语言/Change language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1129"/>
+        <location filename="mcserverhelper.ui" line="1139"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Need some help? View &lt;a href=&quot;https://github.com/Brownlzy/MCServerHelper&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://github.com/Brownlzy/MCServerHelper&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;需要帮助?浏览这个网页 &lt;a href=&quot;https://github.com/Brownlzy/MCServerHelper&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://github.com/Brownlzy/MCServerHelper&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1243"/>
+        <location filename="mcserverhelper.ui" line="1255"/>
         <source>U</source>
         <translation>U</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1256"/>
+        <location filename="mcserverhelper.ui" line="1268"/>
         <source>↑</source>
         <translation>↑</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1284"/>
+        <location filename="mcserverhelper.ui" line="1296"/>
         <source>Command Helper</source>
         <translation>所有指令</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1288"/>
+        <location filename="mcserverhelper.ui" line="1300"/>
         <source>advancement</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1295"/>
+        <location filename="mcserverhelper.ui" line="1307"/>
         <source>attribute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1299"/>
+        <location filename="mcserverhelper.ui" line="1311"/>
         <source>&lt;target&gt; &lt;attribute&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1309"/>
+        <location filename="mcserverhelper.ui" line="1321"/>
         <source>execute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1326"/>
+        <location filename="mcserverhelper.ui" line="1338"/>
         <source>bossbar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1336"/>
-        <location filename="mcserverhelper.ui" line="2309"/>
-        <location filename="mcserverhelper.ui" line="2919"/>
-        <location filename="mcserverhelper.ui" line="3169"/>
-        <location filename="mcserverhelper.ui" line="3209"/>
+        <location filename="mcserverhelper.ui" line="1348"/>
+        <location filename="mcserverhelper.ui" line="2321"/>
+        <location filename="mcserverhelper.ui" line="2931"/>
+        <location filename="mcserverhelper.ui" line="3181"/>
+        <location filename="mcserverhelper.ui" line="3221"/>
         <source>clear</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1342"/>
+        <location filename="mcserverhelper.ui" line="1354"/>
         <source>clone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1346"/>
-        <location filename="mcserverhelper.ui" line="2204"/>
+        <location filename="mcserverhelper.ui" line="1358"/>
+        <location filename="mcserverhelper.ui" line="2216"/>
         <source>&lt;begin&gt; &lt;end&gt; &lt;destination&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1357"/>
+        <location filename="mcserverhelper.ui" line="1369"/>
         <source>data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1366"/>
+        <location filename="mcserverhelper.ui" line="1378"/>
         <source>datapack</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1373"/>
+        <location filename="mcserverhelper.ui" line="1385"/>
         <source>debug</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1381"/>
+        <location filename="mcserverhelper.ui" line="1393"/>
         <source>defaultgamemode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1390"/>
+        <location filename="mcserverhelper.ui" line="1402"/>
         <source>difficulty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1399"/>
+        <location filename="mcserverhelper.ui" line="1411"/>
         <source>effecf</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1406"/>
+        <location filename="mcserverhelper.ui" line="1418"/>
         <source>me</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1412"/>
+        <location filename="mcserverhelper.ui" line="1424"/>
         <source>fill</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1416"/>
-        <location filename="mcserverhelper.ui" line="2369"/>
+        <location filename="mcserverhelper.ui" line="1428"/>
+        <location filename="mcserverhelper.ui" line="2381"/>
         <source>&lt;from&gt; &lt;to&gt; &lt;block&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1429"/>
+        <location filename="mcserverhelper.ui" line="1441"/>
         <source>experience</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1437"/>
-        <location filename="mcserverhelper.ui" line="2264"/>
-        <location filename="mcserverhelper.ui" line="2914"/>
+        <location filename="mcserverhelper.ui" line="1449"/>
+        <location filename="mcserverhelper.ui" line="2276"/>
+        <location filename="mcserverhelper.ui" line="2926"/>
         <source>function</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1443"/>
+        <location filename="mcserverhelper.ui" line="1455"/>
         <source>gamemode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1452"/>
+        <location filename="mcserverhelper.ui" line="1464"/>
         <source>item</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1459"/>
+        <location filename="mcserverhelper.ui" line="1471"/>
         <source>enchant</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1465"/>
+        <location filename="mcserverhelper.ui" line="1477"/>
         <source>xp</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1473"/>
+        <location filename="mcserverhelper.ui" line="1485"/>
         <source>forceload</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1481"/>
+        <location filename="mcserverhelper.ui" line="1493"/>
         <source>gamerule</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1520"/>
-        <location filename="mcserverhelper.ui" line="2314"/>
-        <location filename="mcserverhelper.ui" line="2804"/>
-        <location filename="mcserverhelper.ui" line="2904"/>
+        <location filename="mcserverhelper.ui" line="1532"/>
+        <location filename="mcserverhelper.ui" line="2326"/>
+        <location filename="mcserverhelper.ui" line="2816"/>
+        <location filename="mcserverhelper.ui" line="2916"/>
         <source>give</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1524"/>
-        <location filename="mcserverhelper.ui" line="2609"/>
+        <location filename="mcserverhelper.ui" line="1536"/>
+        <location filename="mcserverhelper.ui" line="2621"/>
         <source>&lt;targets&gt; &lt;item&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1533"/>
+        <location filename="mcserverhelper.ui" line="1545"/>
         <source>help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1540"/>
+        <location filename="mcserverhelper.ui" line="1552"/>
         <source>whitelist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1551"/>
+        <location filename="mcserverhelper.ui" line="1563"/>
         <source>kick</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1555"/>
-        <location filename="mcserverhelper.ui" line="1759"/>
-        <location filename="mcserverhelper.ui" line="1795"/>
-        <location filename="mcserverhelper.ui" line="1872"/>
-        <location filename="mcserverhelper.ui" line="1941"/>
-        <location filename="mcserverhelper.ui" line="2669"/>
-        <location filename="mcserverhelper.ui" line="2994"/>
-        <location filename="mcserverhelper.ui" line="3129"/>
-        <location filename="mcserverhelper.ui" line="3274"/>
-        <location filename="mcserverhelper.ui" line="3284"/>
-        <location filename="mcserverhelper.ui" line="3289"/>
-        <location filename="mcserverhelper.ui" line="3294"/>
-        <location filename="mcserverhelper.ui" line="3299"/>
+        <location filename="mcserverhelper.ui" line="1567"/>
+        <location filename="mcserverhelper.ui" line="1771"/>
+        <location filename="mcserverhelper.ui" line="1807"/>
+        <location filename="mcserverhelper.ui" line="1884"/>
+        <location filename="mcserverhelper.ui" line="1953"/>
+        <location filename="mcserverhelper.ui" line="2681"/>
+        <location filename="mcserverhelper.ui" line="3006"/>
+        <location filename="mcserverhelper.ui" line="3141"/>
+        <location filename="mcserverhelper.ui" line="3286"/>
+        <location filename="mcserverhelper.ui" line="3296"/>
+        <location filename="mcserverhelper.ui" line="3301"/>
+        <location filename="mcserverhelper.ui" line="3306"/>
+        <location filename="mcserverhelper.ui" line="3311"/>
         <source>&lt;targets&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1564"/>
+        <location filename="mcserverhelper.ui" line="1576"/>
         <source>kill</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1571"/>
-        <location filename="mcserverhelper.ui" line="2184"/>
-        <location filename="mcserverhelper.ui" line="2649"/>
-        <location filename="mcserverhelper.ui" line="3074"/>
-        <location filename="mcserverhelper.ui" line="3079"/>
+        <location filename="mcserverhelper.ui" line="1583"/>
+        <location filename="mcserverhelper.ui" line="2196"/>
+        <location filename="mcserverhelper.ui" line="2661"/>
+        <location filename="mcserverhelper.ui" line="3086"/>
+        <location filename="mcserverhelper.ui" line="3091"/>
         <source>list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1578"/>
+        <location filename="mcserverhelper.ui" line="1590"/>
         <source>locate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1601"/>
+        <location filename="mcserverhelper.ui" line="1613"/>
         <source>locatebiome</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1607"/>
+        <location filename="mcserverhelper.ui" line="1619"/>
         <source>loot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1616"/>
-        <location filename="mcserverhelper.ui" line="2324"/>
+        <location filename="mcserverhelper.ui" line="1628"/>
+        <location filename="mcserverhelper.ui" line="2336"/>
         <source>msg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1622"/>
-        <location filename="mcserverhelper.ui" line="2329"/>
+        <location filename="mcserverhelper.ui" line="1634"/>
+        <location filename="mcserverhelper.ui" line="2341"/>
         <source>tell</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1628"/>
+        <location filename="mcserverhelper.ui" line="1640"/>
         <source>w</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1634"/>
+        <location filename="mcserverhelper.ui" line="1646"/>
         <source>particle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1638"/>
-        <location filename="mcserverhelper.ui" line="2414"/>
-        <location filename="mcserverhelper.ui" line="2829"/>
+        <location filename="mcserverhelper.ui" line="1650"/>
+        <location filename="mcserverhelper.ui" line="2426"/>
+        <location filename="mcserverhelper.ui" line="2841"/>
         <source>&lt;name&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1647"/>
+        <location filename="mcserverhelper.ui" line="1659"/>
         <source>playsound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1651"/>
+        <location filename="mcserverhelper.ui" line="1663"/>
         <source>&lt;sound&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1668"/>
-        <location filename="mcserverhelper.ui" line="2664"/>
+        <location filename="mcserverhelper.ui" line="1680"/>
+        <location filename="mcserverhelper.ui" line="2676"/>
         <source>reload</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1674"/>
+        <location filename="mcserverhelper.ui" line="1686"/>
         <source>recipe</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1681"/>
+        <location filename="mcserverhelper.ui" line="1693"/>
         <source>say</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1687"/>
+        <location filename="mcserverhelper.ui" line="1699"/>
         <source>schedule</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1694"/>
+        <location filename="mcserverhelper.ui" line="1706"/>
         <source>scoreboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1701"/>
+        <location filename="mcserverhelper.ui" line="1713"/>
         <source>seed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1707"/>
+        <location filename="mcserverhelper.ui" line="1719"/>
         <source>setblock</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1711"/>
+        <location filename="mcserverhelper.ui" line="1723"/>
         <source>&lt;pos&gt; &lt;block&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1721"/>
+        <location filename="mcserverhelper.ui" line="1733"/>
         <source>spawnpoint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1728"/>
+        <location filename="mcserverhelper.ui" line="1740"/>
         <source>setworldspawn</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1735"/>
+        <location filename="mcserverhelper.ui" line="1747"/>
         <source>spectate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1742"/>
+        <location filename="mcserverhelper.ui" line="1754"/>
         <source>spreadplayers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1746"/>
+        <location filename="mcserverhelper.ui" line="1758"/>
         <source>&lt;center&gt; &lt;spreadDistance&gt; &lt;maxRange&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1755"/>
+        <location filename="mcserverhelper.ui" line="1767"/>
         <source>stopsound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1778"/>
+        <location filename="mcserverhelper.ui" line="1790"/>
         <source>summon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1782"/>
-        <location filename="mcserverhelper.ui" line="3054"/>
+        <location filename="mcserverhelper.ui" line="1794"/>
+        <location filename="mcserverhelper.ui" line="3066"/>
         <source>&lt;entity&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1791"/>
+        <location filename="mcserverhelper.ui" line="1803"/>
         <source>tag</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1805"/>
+        <location filename="mcserverhelper.ui" line="1817"/>
         <source>team</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1817"/>
+        <location filename="mcserverhelper.ui" line="1829"/>
         <source>teammsg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1823"/>
+        <location filename="mcserverhelper.ui" line="1835"/>
         <source>tm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1829"/>
+        <location filename="mcserverhelper.ui" line="1841"/>
         <source>teleport</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1837"/>
+        <location filename="mcserverhelper.ui" line="1849"/>
         <source>tp</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1845"/>
+        <location filename="mcserverhelper.ui" line="1857"/>
         <source>tellraw</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1851"/>
+        <location filename="mcserverhelper.ui" line="1863"/>
         <source>time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1855"/>
-        <location filename="mcserverhelper.ui" line="2189"/>
-        <location filename="mcserverhelper.ui" line="2344"/>
-        <location filename="mcserverhelper.ui" line="2359"/>
-        <location filename="mcserverhelper.ui" line="3204"/>
-        <location filename="mcserverhelper.ui" line="3229"/>
+        <location filename="mcserverhelper.ui" line="1867"/>
+        <location filename="mcserverhelper.ui" line="2201"/>
+        <location filename="mcserverhelper.ui" line="2356"/>
+        <location filename="mcserverhelper.ui" line="2371"/>
+        <location filename="mcserverhelper.ui" line="3216"/>
+        <location filename="mcserverhelper.ui" line="3241"/>
         <source>set</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1868"/>
-        <location filename="mcserverhelper.ui" line="3179"/>
+        <location filename="mcserverhelper.ui" line="1880"/>
+        <location filename="mcserverhelper.ui" line="3191"/>
         <source>title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1885"/>
+        <location filename="mcserverhelper.ui" line="1897"/>
         <source>trigger</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1889"/>
+        <location filename="mcserverhelper.ui" line="1901"/>
         <source>&lt;objective&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1898"/>
-        <location filename="mcserverhelper.ui" line="2859"/>
-        <location filename="mcserverhelper.ui" line="3019"/>
+        <location filename="mcserverhelper.ui" line="1910"/>
+        <location filename="mcserverhelper.ui" line="2871"/>
+        <location filename="mcserverhelper.ui" line="3031"/>
         <source>weather</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1906"/>
+        <location filename="mcserverhelper.ui" line="1918"/>
         <source>worldborder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1917"/>
+        <location filename="mcserverhelper.ui" line="1929"/>
         <source>ban-ip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1921"/>
-        <location filename="mcserverhelper.ui" line="3254"/>
+        <location filename="mcserverhelper.ui" line="1933"/>
+        <location filename="mcserverhelper.ui" line="3266"/>
         <source>&lt;target&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1930"/>
+        <location filename="mcserverhelper.ui" line="1942"/>
         <source>banlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1937"/>
+        <location filename="mcserverhelper.ui" line="1949"/>
         <source>ban</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1950"/>
+        <location filename="mcserverhelper.ui" line="1962"/>
         <source>deop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1956"/>
+        <location filename="mcserverhelper.ui" line="1968"/>
         <source>op</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1962"/>
+        <location filename="mcserverhelper.ui" line="1974"/>
         <source>pardon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1968"/>
+        <location filename="mcserverhelper.ui" line="1980"/>
         <source>pardon-ip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1974"/>
+        <location filename="mcserverhelper.ui" line="1986"/>
         <source>perf</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1981"/>
+        <location filename="mcserverhelper.ui" line="1993"/>
         <source>save-all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1988"/>
+        <location filename="mcserverhelper.ui" line="2000"/>
         <source>save-off</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1994"/>
+        <location filename="mcserverhelper.ui" line="2006"/>
         <source>save-on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2000"/>
+        <location filename="mcserverhelper.ui" line="2012"/>
         <source>setidletimeout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2006"/>
-        <location filename="mcserverhelper.ui" line="2259"/>
-        <location filename="mcserverhelper.ui" line="3309"/>
+        <location filename="mcserverhelper.ui" line="2018"/>
+        <location filename="mcserverhelper.ui" line="2271"/>
+        <location filename="mcserverhelper.ui" line="3321"/>
         <source>stop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2089"/>
+        <location filename="mcserverhelper.ui" line="2101"/>
         <source>grant</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2094"/>
+        <location filename="mcserverhelper.ui" line="2106"/>
         <source>revoke</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2099"/>
-        <location filename="mcserverhelper.ui" line="2194"/>
-        <location filename="mcserverhelper.ui" line="2229"/>
-        <location filename="mcserverhelper.ui" line="3244"/>
+        <location filename="mcserverhelper.ui" line="2111"/>
+        <location filename="mcserverhelper.ui" line="2206"/>
+        <location filename="mcserverhelper.ui" line="2241"/>
+        <location filename="mcserverhelper.ui" line="3256"/>
         <source>get</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2104"/>
+        <location filename="mcserverhelper.ui" line="2116"/>
         <source>base</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2109"/>
+        <location filename="mcserverhelper.ui" line="2121"/>
         <source>modifier</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2114"/>
+        <location filename="mcserverhelper.ui" line="2126"/>
         <source>run</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2119"/>
+        <location filename="mcserverhelper.ui" line="2131"/>
         <source>if</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2124"/>
+        <location filename="mcserverhelper.ui" line="2136"/>
         <source>unless</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2129"/>
+        <location filename="mcserverhelper.ui" line="2141"/>
         <source>as</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2134"/>
+        <location filename="mcserverhelper.ui" line="2146"/>
         <source>at</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2139"/>
+        <location filename="mcserverhelper.ui" line="2151"/>
         <source>store</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2144"/>
+        <location filename="mcserverhelper.ui" line="2156"/>
         <source>positioned</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2149"/>
+        <location filename="mcserverhelper.ui" line="2161"/>
         <source>rotated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2154"/>
+        <location filename="mcserverhelper.ui" line="2166"/>
         <source>facing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2159"/>
+        <location filename="mcserverhelper.ui" line="2171"/>
         <source>align</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2164"/>
+        <location filename="mcserverhelper.ui" line="2176"/>
         <source>anchored</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2169"/>
+        <location filename="mcserverhelper.ui" line="2181"/>
         <source>in</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2174"/>
-        <location filename="mcserverhelper.ui" line="2339"/>
-        <location filename="mcserverhelper.ui" line="2354"/>
-        <location filename="mcserverhelper.ui" line="2399"/>
-        <location filename="mcserverhelper.ui" line="2654"/>
-        <location filename="mcserverhelper.ui" line="3064"/>
-        <location filename="mcserverhelper.ui" line="3084"/>
-        <location filename="mcserverhelper.ui" line="3139"/>
-        <location filename="mcserverhelper.ui" line="3199"/>
-        <location filename="mcserverhelper.ui" line="3224"/>
+        <location filename="mcserverhelper.ui" line="2186"/>
+        <location filename="mcserverhelper.ui" line="2351"/>
+        <location filename="mcserverhelper.ui" line="2366"/>
+        <location filename="mcserverhelper.ui" line="2411"/>
+        <location filename="mcserverhelper.ui" line="2666"/>
+        <location filename="mcserverhelper.ui" line="3076"/>
+        <location filename="mcserverhelper.ui" line="3096"/>
+        <location filename="mcserverhelper.ui" line="3151"/>
+        <location filename="mcserverhelper.ui" line="3211"/>
+        <location filename="mcserverhelper.ui" line="3236"/>
         <source>add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2179"/>
-        <location filename="mcserverhelper.ui" line="2234"/>
-        <location filename="mcserverhelper.ui" line="2404"/>
-        <location filename="mcserverhelper.ui" line="2659"/>
-        <location filename="mcserverhelper.ui" line="3069"/>
-        <location filename="mcserverhelper.ui" line="3089"/>
+        <location filename="mcserverhelper.ui" line="2191"/>
+        <location filename="mcserverhelper.ui" line="2246"/>
+        <location filename="mcserverhelper.ui" line="2416"/>
+        <location filename="mcserverhelper.ui" line="2671"/>
+        <location filename="mcserverhelper.ui" line="3081"/>
+        <location filename="mcserverhelper.ui" line="3101"/>
         <source>remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2199"/>
-        <location filename="mcserverhelper.ui" line="2679"/>
-        <location filename="mcserverhelper.ui" line="2959"/>
+        <location filename="mcserverhelper.ui" line="2211"/>
+        <location filename="mcserverhelper.ui" line="2691"/>
+        <location filename="mcserverhelper.ui" line="2971"/>
         <source>[&lt;targets&gt;]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2209"/>
-        <location filename="mcserverhelper.ui" line="2374"/>
-        <location filename="mcserverhelper.ui" line="2629"/>
-        <location filename="mcserverhelper.ui" line="2794"/>
-        <location filename="mcserverhelper.ui" line="2949"/>
+        <location filename="mcserverhelper.ui" line="2221"/>
+        <location filename="mcserverhelper.ui" line="2386"/>
+        <location filename="mcserverhelper.ui" line="2641"/>
+        <location filename="mcserverhelper.ui" line="2806"/>
+        <location filename="mcserverhelper.ui" line="2961"/>
         <source>replace</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2214"/>
+        <location filename="mcserverhelper.ui" line="2226"/>
         <source>masked</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2219"/>
+        <location filename="mcserverhelper.ui" line="2231"/>
         <source>filtered</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2224"/>
+        <location filename="mcserverhelper.ui" line="2236"/>
         <source>merge</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2239"/>
-        <location filename="mcserverhelper.ui" line="2634"/>
-        <location filename="mcserverhelper.ui" line="3109"/>
+        <location filename="mcserverhelper.ui" line="2251"/>
+        <location filename="mcserverhelper.ui" line="2646"/>
+        <location filename="mcserverhelper.ui" line="3121"/>
         <source>modify</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2244"/>
+        <location filename="mcserverhelper.ui" line="2256"/>
         <source>enable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2249"/>
+        <location filename="mcserverhelper.ui" line="2261"/>
         <source>disable|list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2254"/>
-        <location filename="mcserverhelper.ui" line="3304"/>
+        <location filename="mcserverhelper.ui" line="2266"/>
+        <location filename="mcserverhelper.ui" line="3316"/>
         <source>start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2269"/>
-        <location filename="mcserverhelper.ui" line="2419"/>
+        <location filename="mcserverhelper.ui" line="2281"/>
+        <location filename="mcserverhelper.ui" line="2431"/>
         <source>survival</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2274"/>
-        <location filename="mcserverhelper.ui" line="2424"/>
+        <location filename="mcserverhelper.ui" line="2286"/>
+        <location filename="mcserverhelper.ui" line="2436"/>
         <source>creative</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2279"/>
-        <location filename="mcserverhelper.ui" line="2429"/>
+        <location filename="mcserverhelper.ui" line="2291"/>
+        <location filename="mcserverhelper.ui" line="2441"/>
         <source>adventure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2284"/>
-        <location filename="mcserverhelper.ui" line="2434"/>
+        <location filename="mcserverhelper.ui" line="2296"/>
+        <location filename="mcserverhelper.ui" line="2446"/>
         <source>spectator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2289"/>
+        <location filename="mcserverhelper.ui" line="2301"/>
         <source>peaceful</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2294"/>
+        <location filename="mcserverhelper.ui" line="2306"/>
         <source>easy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2299"/>
+        <location filename="mcserverhelper.ui" line="2311"/>
         <source>normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2304"/>
+        <location filename="mcserverhelper.ui" line="2316"/>
         <source>hard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2319"/>
+        <location filename="mcserverhelper.ui" line="2331"/>
         <source>&lt;action&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2334"/>
+        <location filename="mcserverhelper.ui" line="2346"/>
         <source>&lt;targets&gt; &lt;enchantment&gt; [&lt;level&gt;]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2349"/>
-        <location filename="mcserverhelper.ui" line="2364"/>
-        <location filename="mcserverhelper.ui" line="2409"/>
-        <location filename="mcserverhelper.ui" line="3144"/>
+        <location filename="mcserverhelper.ui" line="2361"/>
+        <location filename="mcserverhelper.ui" line="2376"/>
+        <location filename="mcserverhelper.ui" line="2421"/>
+        <location filename="mcserverhelper.ui" line="3156"/>
         <source>query</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2379"/>
-        <location filename="mcserverhelper.ui" line="2944"/>
+        <location filename="mcserverhelper.ui" line="2391"/>
+        <location filename="mcserverhelper.ui" line="2956"/>
         <source>keep</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2384"/>
+        <location filename="mcserverhelper.ui" line="2396"/>
         <source>outline</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2389"/>
+        <location filename="mcserverhelper.ui" line="2401"/>
         <source>hollow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2394"/>
-        <location filename="mcserverhelper.ui" line="2939"/>
+        <location filename="mcserverhelper.ui" line="2406"/>
+        <location filename="mcserverhelper.ui" line="2951"/>
         <source>destroy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2439"/>
+        <location filename="mcserverhelper.ui" line="2451"/>
         <source>announceAdvancements</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2444"/>
+        <location filename="mcserverhelper.ui" line="2456"/>
         <source>commandBlockOutput</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2449"/>
+        <location filename="mcserverhelper.ui" line="2461"/>
         <source>disableElytraMovementCheck</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2454"/>
+        <location filename="mcserverhelper.ui" line="2466"/>
         <source>disableRaids</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2459"/>
+        <location filename="mcserverhelper.ui" line="2471"/>
         <source>doDaylightCycle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2464"/>
+        <location filename="mcserverhelper.ui" line="2476"/>
         <source>doEntityDrops</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2469"/>
+        <location filename="mcserverhelper.ui" line="2481"/>
         <source>doFireTick</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2474"/>
+        <location filename="mcserverhelper.ui" line="2486"/>
         <source>doImmediateRespawn</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2479"/>
+        <location filename="mcserverhelper.ui" line="2491"/>
         <source>doInsomnia</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2484"/>
+        <location filename="mcserverhelper.ui" line="2496"/>
         <source>doLimitedCrafting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2489"/>
+        <location filename="mcserverhelper.ui" line="2501"/>
         <source>doMobLoot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2494"/>
+        <location filename="mcserverhelper.ui" line="2506"/>
         <source>doMobSpawning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2499"/>
+        <location filename="mcserverhelper.ui" line="2511"/>
         <source>doPatrolSpawning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2504"/>
+        <location filename="mcserverhelper.ui" line="2516"/>
         <source>doTileDrops</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2509"/>
+        <location filename="mcserverhelper.ui" line="2521"/>
         <source>doTraderSpawning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2514"/>
+        <location filename="mcserverhelper.ui" line="2526"/>
         <source>doWeatherCycle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2519"/>
+        <location filename="mcserverhelper.ui" line="2531"/>
         <source>drowningDamage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2524"/>
+        <location filename="mcserverhelper.ui" line="2536"/>
         <source>fallDamage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2529"/>
+        <location filename="mcserverhelper.ui" line="2541"/>
         <source>forgiveDeadPlayers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2534"/>
+        <location filename="mcserverhelper.ui" line="2546"/>
         <source>freezeDamage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2539"/>
+        <location filename="mcserverhelper.ui" line="2551"/>
         <source>keepInventory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2544"/>
+        <location filename="mcserverhelper.ui" line="2556"/>
         <source>logAdminCommands</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2549"/>
+        <location filename="mcserverhelper.ui" line="2561"/>
         <source>maxCommandChainLength</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2554"/>
+        <location filename="mcserverhelper.ui" line="2566"/>
         <source>maxEntityCramming</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2559"/>
+        <location filename="mcserverhelper.ui" line="2571"/>
         <source>mobGriefing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2564"/>
+        <location filename="mcserverhelper.ui" line="2576"/>
         <source>naturalRegeneration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2569"/>
+        <location filename="mcserverhelper.ui" line="2581"/>
         <source>playersSleepingPercentage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2574"/>
+        <location filename="mcserverhelper.ui" line="2586"/>
         <source>randomTickSpeed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2579"/>
+        <location filename="mcserverhelper.ui" line="2591"/>
         <source>reducedDebugInfo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2584"/>
+        <location filename="mcserverhelper.ui" line="2596"/>
         <source>sendCommandFeedback</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2589"/>
+        <location filename="mcserverhelper.ui" line="2601"/>
         <source>showDeathMessages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2594"/>
+        <location filename="mcserverhelper.ui" line="2606"/>
         <source>spawnRadius</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2599"/>
+        <location filename="mcserverhelper.ui" line="2611"/>
         <source>universalAnger</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2604"/>
+        <location filename="mcserverhelper.ui" line="2616"/>
         <source>spectatorsGenerateChunks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2614"/>
+        <location filename="mcserverhelper.ui" line="2626"/>
         <source>[&lt;count&gt;]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2624"/>
+        <location filename="mcserverhelper.ui" line="2636"/>
         <source>[&lt;command&gt;]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2639"/>
+        <location filename="mcserverhelper.ui" line="2651"/>
         <source>on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2644"/>
+        <location filename="mcserverhelper.ui" line="2656"/>
         <source>off</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2674"/>
-        <location filename="mcserverhelper.ui" line="3259"/>
-        <location filename="mcserverhelper.ui" line="3279"/>
+        <location filename="mcserverhelper.ui" line="2686"/>
+        <location filename="mcserverhelper.ui" line="3271"/>
+        <location filename="mcserverhelper.ui" line="3291"/>
         <source>[&lt;reason&gt;]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2694"/>
+        <location filename="mcserverhelper.ui" line="2706"/>
         <source>[uuid]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2699"/>
+        <location filename="mcserverhelper.ui" line="2711"/>
         <source>pillager_outpost</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2704"/>
+        <location filename="mcserverhelper.ui" line="2716"/>
         <source>mineshaft</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2709"/>
+        <location filename="mcserverhelper.ui" line="2721"/>
         <source>mansion</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2714"/>
+        <location filename="mcserverhelper.ui" line="2726"/>
         <source>jungle_pyramid</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2719"/>
+        <location filename="mcserverhelper.ui" line="2731"/>
         <source>desert_pyramid</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2724"/>
+        <location filename="mcserverhelper.ui" line="2736"/>
         <source>igloo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2729"/>
+        <location filename="mcserverhelper.ui" line="2741"/>
         <source>ruined_portal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2734"/>
+        <location filename="mcserverhelper.ui" line="2746"/>
         <source>shipwreck</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2739"/>
+        <location filename="mcserverhelper.ui" line="2751"/>
         <source>swamp_hut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2744"/>
+        <location filename="mcserverhelper.ui" line="2756"/>
         <source>stronghold</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2749"/>
+        <location filename="mcserverhelper.ui" line="2761"/>
         <source>monument</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2754"/>
+        <location filename="mcserverhelper.ui" line="2766"/>
         <source>ocean_ruin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2759"/>
+        <location filename="mcserverhelper.ui" line="2771"/>
         <source>fortress</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2764"/>
+        <location filename="mcserverhelper.ui" line="2776"/>
         <source>endcity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2769"/>
+        <location filename="mcserverhelper.ui" line="2781"/>
         <source>buried_treasure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2774"/>
+        <location filename="mcserverhelper.ui" line="2786"/>
         <source>village</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2779"/>
+        <location filename="mcserverhelper.ui" line="2791"/>
         <source>nether_fossil</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2784"/>
+        <location filename="mcserverhelper.ui" line="2796"/>
         <source>bastion_remnant</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2789"/>
+        <location filename="mcserverhelper.ui" line="2801"/>
         <source>&lt;biome&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2799"/>
+        <location filename="mcserverhelper.ui" line="2811"/>
         <source>insert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2809"/>
+        <location filename="mcserverhelper.ui" line="2821"/>
         <source>spawn</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2814"/>
-        <location filename="mcserverhelper.ui" line="2819"/>
-        <location filename="mcserverhelper.ui" line="2824"/>
-        <location filename="mcserverhelper.ui" line="3134"/>
+        <location filename="mcserverhelper.ui" line="2826"/>
+        <location filename="mcserverhelper.ui" line="2831"/>
+        <location filename="mcserverhelper.ui" line="2836"/>
+        <location filename="mcserverhelper.ui" line="3146"/>
         <source>&lt;targets&gt; &lt;message&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2834"/>
-        <location filename="mcserverhelper.ui" line="2969"/>
-        <location filename="mcserverhelper.ui" line="3059"/>
+        <location filename="mcserverhelper.ui" line="2846"/>
+        <location filename="mcserverhelper.ui" line="2981"/>
+        <location filename="mcserverhelper.ui" line="3071"/>
         <source>[&lt;pos&gt;]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2839"/>
+        <location filename="mcserverhelper.ui" line="2851"/>
         <source>master|music|record|weather|block|hostile|neutral|player|ambient|voice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2844"/>
-        <location filename="mcserverhelper.ui" line="3004"/>
+        <location filename="mcserverhelper.ui" line="2856"/>
+        <location filename="mcserverhelper.ui" line="3016"/>
         <source>master</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2849"/>
-        <location filename="mcserverhelper.ui" line="3009"/>
+        <location filename="mcserverhelper.ui" line="2861"/>
+        <location filename="mcserverhelper.ui" line="3021"/>
         <source>music</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2854"/>
-        <location filename="mcserverhelper.ui" line="3014"/>
+        <location filename="mcserverhelper.ui" line="2866"/>
+        <location filename="mcserverhelper.ui" line="3026"/>
         <source>record</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2864"/>
-        <location filename="mcserverhelper.ui" line="3024"/>
+        <location filename="mcserverhelper.ui" line="2876"/>
+        <location filename="mcserverhelper.ui" line="3036"/>
         <source>block</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2869"/>
-        <location filename="mcserverhelper.ui" line="3029"/>
+        <location filename="mcserverhelper.ui" line="2881"/>
+        <location filename="mcserverhelper.ui" line="3041"/>
         <source>hostile</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2874"/>
-        <location filename="mcserverhelper.ui" line="3034"/>
+        <location filename="mcserverhelper.ui" line="2886"/>
+        <location filename="mcserverhelper.ui" line="3046"/>
         <source>neutral</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2879"/>
-        <location filename="mcserverhelper.ui" line="3039"/>
+        <location filename="mcserverhelper.ui" line="2891"/>
+        <location filename="mcserverhelper.ui" line="3051"/>
         <source>player</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2884"/>
-        <location filename="mcserverhelper.ui" line="3044"/>
+        <location filename="mcserverhelper.ui" line="2896"/>
+        <location filename="mcserverhelper.ui" line="3056"/>
         <source>ambient</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2889"/>
-        <location filename="mcserverhelper.ui" line="3049"/>
+        <location filename="mcserverhelper.ui" line="2901"/>
+        <location filename="mcserverhelper.ui" line="3061"/>
         <source>voice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2899"/>
-        <location filename="mcserverhelper.ui" line="3114"/>
+        <location filename="mcserverhelper.ui" line="2911"/>
+        <location filename="mcserverhelper.ui" line="3126"/>
         <source>&lt;message&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2909"/>
+        <location filename="mcserverhelper.ui" line="2921"/>
         <source>take</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2924"/>
+        <location filename="mcserverhelper.ui" line="2936"/>
         <source>objectives</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2929"/>
-        <location filename="mcserverhelper.ui" line="3269"/>
+        <location filename="mcserverhelper.ui" line="2941"/>
+        <location filename="mcserverhelper.ui" line="3281"/>
         <source>players</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2979"/>
+        <location filename="mcserverhelper.ui" line="2991"/>
         <source>[&lt;target&gt;]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2984"/>
+        <location filename="mcserverhelper.ui" line="2996"/>
         <source>&lt;respectTeams&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2989"/>
+        <location filename="mcserverhelper.ui" line="3001"/>
         <source>under</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="2999"/>
+        <location filename="mcserverhelper.ui" line="3011"/>
         <source>*</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="3094"/>
+        <location filename="mcserverhelper.ui" line="3106"/>
         <source>empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="3099"/>
+        <location filename="mcserverhelper.ui" line="3111"/>
         <source>join</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="3104"/>
+        <location filename="mcserverhelper.ui" line="3116"/>
         <source>leave</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="3119"/>
+        <location filename="mcserverhelper.ui" line="3131"/>
         <source>&lt;location&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="3124"/>
+        <location filename="mcserverhelper.ui" line="3136"/>
         <source>&lt;destination&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="3149"/>
+        <location filename="mcserverhelper.ui" line="3161"/>
         <source>day</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="3154"/>
+        <location filename="mcserverhelper.ui" line="3166"/>
         <source>noon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="3159"/>
+        <location filename="mcserverhelper.ui" line="3171"/>
         <source>night</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="3164"/>
+        <location filename="mcserverhelper.ui" line="3176"/>
         <source>midnight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="3174"/>
+        <location filename="mcserverhelper.ui" line="3186"/>
         <source>reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="3184"/>
+        <location filename="mcserverhelper.ui" line="3196"/>
         <source>subtitle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="3189"/>
+        <location filename="mcserverhelper.ui" line="3201"/>
         <source>actionbar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="3194"/>
+        <location filename="mcserverhelper.ui" line="3206"/>
         <source>times</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="3214"/>
+        <location filename="mcserverhelper.ui" line="3226"/>
         <source>rain</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="3219"/>
+        <location filename="mcserverhelper.ui" line="3231"/>
         <source>thunder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="3234"/>
+        <location filename="mcserverhelper.ui" line="3246"/>
         <source>center</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="3239"/>
+        <location filename="mcserverhelper.ui" line="3251"/>
         <source>damage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="3249"/>
+        <location filename="mcserverhelper.ui" line="3261"/>
         <source>warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="3264"/>
+        <location filename="mcserverhelper.ui" line="3276"/>
         <source>ips</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="3319"/>
+        <location filename="mcserverhelper.ui" line="3331"/>
         <source>[flush]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="3334"/>
+        <location filename="mcserverhelper.ui" line="3346"/>
         <source>&lt;minutes&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="555"/>
-        <location filename="mcserverhelper.ui" line="824"/>
+        <location filename="mcserverhelper.ui" line="565"/>
+        <location filename="mcserverhelper.ui" line="834"/>
         <source>Frp ini Path</source>
         <translation>Frp配置路径</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="490"/>
+        <location filename="mcserverhelper.ui" line="500"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="574"/>
+        <location filename="mcserverhelper.ui" line="584"/>
         <source>MCSH Settings</source>
         <translation>MCSH设置</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="586"/>
+        <location filename="mcserverhelper.ui" line="596"/>
         <source>Java Path</source>
         <translation>Java路径</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="599"/>
+        <location filename="mcserverhelper.ui" line="609"/>
         <source>Min Memory</source>
         <translation>最小内存</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="612"/>
+        <location filename="mcserverhelper.ui" line="622"/>
         <source>Max Memory</source>
         <translation>最大内存</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="959"/>
+        <location filename="mcserverhelper.ui" line="969"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/MCServerHelper/Cat&quot; width=&quot;81&quot; height=&quot;81&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/MCServerHelper/Cat&quot; width=&quot;81&quot; height=&quot;81&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1011"/>
+        <location filename="mcserverhelper.ui" line="1021"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;You can download Frp software at &lt;a href=&quot;https://github.com/fatedier/frp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://github.com/fatedier/frp&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;你可以在&lt;a href=&quot;https://github.com/fatedier/frp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://github.com/fatedier/frp&lt;/span&gt;&lt;/a&gt;下载Frp软件。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1185"/>
+        <location filename="mcserverhelper.ui" line="1197"/>
         <source>Build Time: </source>
         <translation>编译时间: </translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1217"/>
-        <location filename="mcserverhelper.ui" line="1230"/>
+        <location filename="mcserverhelper.ui" line="1229"/>
+        <location filename="mcserverhelper.ui" line="1242"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/MCServerHelper/Cat&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/MCServerHelper/Cat&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="391"/>
-        <location filename="mcserverhelper.ui" line="625"/>
+        <location filename="mcserverhelper.ui" line="401"/>
+        <location filename="mcserverhelper.ui" line="635"/>
         <source>Server Path</source>
         <translation>服务器路径</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="638"/>
+        <location filename="mcserverhelper.ui" line="648"/>
         <source>Start with Windows</source>
         <translation>开机启动</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="651"/>
+        <location filename="mcserverhelper.ui" line="661"/>
         <source>Start Server Once Started</source>
         <translation>启动后立即启动服务器</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="664"/>
+        <location filename="mcserverhelper.ui" line="674"/>
         <source>Start Frp with Minecraft Server</source>
         <translation>启动服务器时启动Frp内网映射工具</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="729"/>
-        <location filename="mcserverhelper.ui" line="742"/>
+        <location filename="mcserverhelper.ui" line="739"/>
+        <location filename="mcserverhelper.ui" line="752"/>
         <source>1024</source>
         <translation>1024</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="755"/>
-        <location filename="mcserverhelper.ui" line="768"/>
+        <location filename="mcserverhelper.ui" line="765"/>
+        <location filename="mcserverhelper.ui" line="778"/>
         <source>MB</source>
         <translation>MB</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="542"/>
-        <location filename="mcserverhelper.ui" line="791"/>
+        <location filename="mcserverhelper.ui" line="552"/>
+        <location filename="mcserverhelper.ui" line="801"/>
         <source>Frp Path</source>
         <translation>Frp路径</translation>
     </message>
     <message>
-        <location filename="mcserverhelper.ui" line="1098"/>
+        <location filename="mcserverhelper.ui" line="1108"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
@@ -1586,37 +1596,52 @@ please stop it brfore closing MCServerHelper!</source>
         <translation>检查升级信息中...</translation>
     </message>
     <message>
+        <location filename="update.cpp" line="75"/>
+        <source>Build Time: </source>
+        <translation type="unfinished">编译时间: </translation>
+    </message>
+    <message>
         <location filename="update.cpp" line="78"/>
         <source>T_T Nothing in here...</source>
         <translation>T_T 这里什么都没有...</translation>
     </message>
     <message>
-        <location filename="update.cpp" line="103"/>
+        <location filename="update.cpp" line="97"/>
+        <source>File MCSH.bin Write Error.</source>
+        <translation>文件MCSH.bin写入错误.</translation>
+    </message>
+    <message>
+        <location filename="update.cpp" line="104"/>
         <source>Downloading Binary File...</source>
         <translation>下载二进制数据中...</translation>
     </message>
     <message>
-        <location filename="update.cpp" line="141"/>
+        <location filename="update.cpp" line="142"/>
         <source>Download Completed.</source>
         <translation>下载完成.</translation>
     </message>
     <message>
-        <location filename="update.cpp" line="149"/>
+        <location filename="update.cpp" line="150"/>
         <source>Prepare Update Environment...</source>
         <translation>准备升级环境...</translation>
     </message>
     <message>
-        <location filename="update.cpp" line="159"/>
+        <location filename="update.cpp" line="160"/>
         <source>CRC32 Check Unpassed.</source>
         <translation>CRC32校验码检测未通过.</translation>
     </message>
     <message>
-        <location filename="update.cpp" line="160"/>
+        <location filename="update.cpp" line="161"/>
         <source>The validity of the downloaded program cannot be determined. You can try again, or go to MCSH.bin in the program directory to manually replace MCServerHelper.exe</source>
         <translation>无法确定下载程序的有效性。您可以重试，或转到程序目录中的MCSH.bin手动替换MCServerHelper.exe</translation>
     </message>
     <message>
-        <location filename="update.cpp" line="173"/>
+        <location filename="update.cpp" line="167"/>
+        <source>File update.bat Write Error.</source>
+        <translation>文件update.bat写入错误.</translation>
+    </message>
+    <message>
+        <location filename="update.cpp" line="179"/>
         <source>Please Restart MCServerHelper to Update.</source>
         <translation>请重启MCServerHelpe以更新程序.</translation>
     </message>

@@ -58,7 +58,7 @@ int Update::CheckUpdate()
 			}
 			else
 			{
-				pLab->setText("Newest Version: " + info.split("<")[1] + " Size: " + info.split("<")[5]);
+				pLab->setText("Latest Version: " + info.split("<")[1] + " / Size: " + info.split("<")[5]);
 				pBar->setMaximum(100);
 				pBar->setValue(100);
 				qDebug() << "Update::NotLasted";
@@ -72,7 +72,7 @@ int Update::CheckUpdate()
 	else
 	{
 		isError = true;
-		pLab->setText(QString("Build Time: ") + __TIMESTAMP__);
+		pLab->setText(QString(tr("Build Time: ")) + __TIMESTAMP__);
 		pBar->setMaximum(100);
 		pBar->setValue(100);
 		pTxt->setPlainText(tr("T_T Nothing in here..."));
@@ -94,6 +94,7 @@ int Update::doUpdate()
 
 	if (!file->open(QIODevice::WriteOnly))
 	{   //如果打开文件失败，则删除file，并使file指针为0，然后返回
+		pLab->setText(tr("File ""MCSH.bin"" Write Error."));
 		qDebug() << "file open error";
 		delete file;
 		file = 0;
@@ -161,11 +162,16 @@ void Update::Updatefile()
 		return;
 	}
 	std::ofstream fbat;
+	if (!fbat)
+	{
+		pLab->setText(tr("File ""update.bat"" Write Error."));
+		return;
+	}
 	fbat.open(qApp->applicationDirPath().toStdString() + "/update.bat");
 	fbat << "@echo off\n";
 	fbat << "TIMEOUT /T 3\n";
 	fbat << "taskkill /pid " << qApp->applicationPid() << " -t -f\n";
-	fbat << "del MCServerHelper.exe\n";
+	fbat << "del " << qApp->applicationName().toStdString() << ".exe\n";
 	fbat << "ren MCSH.bin MCServerHelper.exe\n";
 	fbat << "start MCServerHelper.exe\n";
 	fbat << "del update.bat\n";
