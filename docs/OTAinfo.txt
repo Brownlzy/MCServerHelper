@@ -1,6 +1,8 @@
-MCSH_OTA_INFO!10<0.2.0<201<1<6435ACF6<535KB<https://Brownlzy.github.io/MCServerHelper/MCSHv[VERSION]_exe!========最新版本========
+MCSH_OTA_INFO!200<0.2.1<211<1<720C8D77<535KB<https://Brownlzy.github.io/MCServerHelper/MCSHv[VERSION]_exe!========最新版本========
 Version 0.2
-1.增加玩家列表功能(开放测试中...).
+1.增加玩家列表功能.
+Patch.1.增加进服欢迎提示(很遗憾,不支持中文)
+注意:如果出现无法启动的问题,尝试删除./Server/player-history.json
 
 ========历史版本========
 Version 0.1

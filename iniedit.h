@@ -33,8 +33,12 @@ public:
 		bool isStartWithWindow = false;
 		bool isStartServerOnceStarted = false;
 		bool isStartFrpWithServer = false;
+		bool isOpenedWelcomeNode = true;
 		string Language = "en_us";
 		string JavaPath = "java";
+		string ServerName = "MCSH_Server";
+		string Welcome1 = "Default";
+		string Welcome2 = "Default";
 		int MinMemory = 1024;
 		int MaxMemory = 1024;
 		string ServerPath = "NULL";

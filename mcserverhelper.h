@@ -1,4 +1,5 @@
 ﻿#pragma once
+#pragma execution_character_set("utf-8")
 
 #include <QMainWindow>
 #include "ui_mcserverhelper.h"
@@ -30,6 +31,7 @@ public:
 	void PlayerInfo4Table();
 	void PlayerLogined(QString uName, QString uUUID, QString uIP);
 	void PlayerLosted(QString uName, QString reason);
+	void WelcomeNote(int index, QString uIP, int isFirst = 0);
 
 private:
 	Ui::MCServerHelperClass ui;
@@ -49,8 +51,8 @@ public slots:
 	void ServerStop();
 	void FrpStart();
 	void FrpStop();
-	void MSCHConfirm();
-	void MSCHCancel();
+	void MCSHConfirm();
+	void MCSHCancel();
 	void ServerINIConfirm();
 	void ServerINICancel();
 	void FrpConfirm();

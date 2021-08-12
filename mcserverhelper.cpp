@@ -25,6 +25,7 @@ MCServerHelper::MCServerHelper(QWidget* parent)
 	}
 	qApp->installTranslator(&translator);
 	ui.retranslateUi(this);
+	UpdateSettings();
 	ui.menuBar->hide();
 	ui.frmUpdateInfo->raise();
 	ui.frmUpdateInfo->hide();
@@ -51,10 +52,10 @@ MCServerHelper::MCServerHelper(QWidget* parent)
 	connect(ui.btnServerInput, SIGNAL(clicked()), this, SLOT(ServerInput()));
 	connect(ui.btnServerStop, SIGNAL(clicked()), this, SLOT(ServerStop()));
 	connect(ui.btnFrpStop, SIGNAL(clicked()), this, SLOT(FrpStop()));
-	connect(ui.btnMCSHConfirm, SIGNAL(clicked()), this, SLOT(MSCHConfirm()));
+	connect(ui.btnMCSHConfirm, SIGNAL(clicked()), this, SLOT(MCSHConfirm()));
 	connect(ui.btnServerSConfirm, SIGNAL(clicked()), this, SLOT(ServerINIConfirm()));
 	connect(ui.btnFrpSConfirm, SIGNAL(clicked()), this, SLOT(FrpConfirm()));
-	connect(ui.btnMCSHCancel, SIGNAL(clicked()), this, SLOT(MSCHCancel()));
+	connect(ui.btnMCSHCancel, SIGNAL(clicked()), this, SLOT(MCSHCancel()));
 	connect(ui.btnServerSCancel, SIGNAL(clicked()), this, SLOT(ServerINICancel()));
 	connect(ui.btnFrpSCancel, SIGNAL(clicked()), this, SLOT(FrpCancel()));
 	connect(ui.tabWidget, SIGNAL(currentChanged(int)), this, SLOT(tabChanged(int)));
@@ -104,7 +105,11 @@ void MCServerHelper::UpdateSettings()
 	ui.chkStartWithWindows->setChecked(ie->myini.isStartWithWindow);
 	ui.chkStartServerOnce->setChecked(ie->myini.isStartServerOnceStarted);
 	ui.chkStartFrpOnce->setChecked(ie->myini.isStartFrpWithServer);
+	ui.chkWelcomNote->setChecked(ie->myini.isOpenedWelcomeNode);
+	ui.ServerName->setText(QString::fromStdString(ie->myini.ServerName).replace("&nbsp;", " "));
 	ui.PathJava->setText(QString::fromStdString(ie->myini.JavaPath).replace("&nbsp;", " "));
+	ui.WelcomeNote1->setPlainText(QString::fromStdString(ie->myini.Welcome1).replace("&nbsp;", " "));
+	ui.WelcomeNote2->setPlainText(QString::fromStdString(ie->myini.Welcome2).replace("&nbsp;", " "));
 	ui.MinRam->setText(QString::number(ie->myini.MinMemory));
 	ui.MaxRam->setText(QString::number(ie->myini.MaxMemory));
 	ui.PathServer->setText(QString::fromStdString(ie->myini.ServerPath).replace("&nbsp;", " "));
@@ -257,6 +262,7 @@ void MCServerHelper::PlayerInfo4Table()
 			pi->pPlayer2[i].FirstLogin = ui.PlayerList->item(i, 2)->text();
 		else
 			pi->pPlayer2[i].FirstLogin = pi->pPlayer[pi->getPlayerInfoIndex(pi->pPlayer2[i].ID, pi->pPlayer2[i].UUID)].FirstLogin;
+		pi->pPlayer2[i].Times = pi->pPlayer[pi->getPlayerInfoIndex(pi->pPlayer2[i].ID, pi->pPlayer2[i].UUID)].Times;
 		pi->pPlayer2[i].LastIP = ui.PlayerList->item(i, 6)->text();
 		pi->pPlayer2[i].LastLogin = ui.PlayerList->item(i, 2)->text();
 		pi->pPlayer2[i].LastLost = ui.PlayerList->item(i, 3)->text();
@@ -267,7 +273,9 @@ void MCServerHelper::PlayerInfo4Table()
 
 void MCServerHelper::PlayerLogined(QString uName, QString uUUID, QString uIP)
 {
-	int flag = 0;
+	int flag = 0, index = 0;
+	char* cmd;
+	QByteArray tmp;
 	for (int i = 0; i < ui.PlayerList->rowCount() && flag == 0; i++)
 	{
 		if (ui.PlayerList->item(i, 0)->text() == uName && ui.PlayerList->item(i, 1)->text() == uUUID)
@@ -275,6 +283,18 @@ void MCServerHelper::PlayerLogined(QString uName, QString uUUID, QString uIP)
 			ui.PlayerList->item(i, 0)->setTextColor(QColor("green"));
 			ui.PlayerList->item(i, 6)->setText(uIP);
 			ui.PlayerList->item(i, 2)->setText(ui.labSysTime->text());
+			int id = pi->getPlayerInfoIndex(uName, uUUID);
+			pi->pPlayer[id].Times++;
+			index = i;
+			tmp = ("/title " + ui.PlayerList->item(index, 0)->text() + " title \"Welcome " + ui.PlayerList->item(index, 0)->text() + "!\" \n").toLocal8Bit();
+			cmd = tmp.data();
+			m_server->write(cmd);
+			tmp = ("/title " + ui.PlayerList->item(index, 0)->text() + " subtitle \"" + ui.ServerName->text() + "\" \n").toLocal8Bit();
+			cmd = tmp.data();
+			m_server->write(cmd);
+			if (ui.chkWelcomNote->isChecked()) WelcomeNote(i, uIP);
+			pi->pPlayer[id].LastIP = uIP;
+			pi->pPlayer->LastLogin = ui.PlayerList->item(i, 2)->text();
 			flag = 1;
 		}
 	}
@@ -289,7 +309,18 @@ void MCServerHelper::PlayerLogined(QString uName, QString uUUID, QString uIP)
 		ui.PlayerList->setItem(ui.PlayerList->rowCount() - 1, 5, new QTableWidgetItem("x"));
 		ui.PlayerList->setItem(ui.PlayerList->rowCount() - 1, 6, new QTableWidgetItem(uIP));
 		ui.PlayerList->setItem(ui.PlayerList->rowCount() - 1, 7, new QTableWidgetItem("x"));
+		PlayerInfo4Table();
+		pi->ReadPlayerInfo();
+		index = ui.PlayerList->rowCount() - 1;
+		tmp = ("/title " + ui.PlayerList->item(index, 0)->text() + " title \"Welcome " + ui.PlayerList->item(index, 0)->text() + "!\" \n").toLocal8Bit();
+		cmd = tmp.data();
+		m_server->write(cmd);
+		tmp = ("/title " + ui.PlayerList->item(index, 0)->text() + " subtitle \"" + ui.ServerName->text() + "\" \n").toLocal8Bit();
+		cmd = tmp.data();
+		m_server->write(cmd);
+		if (ui.chkWelcomNote->isChecked()) WelcomeNote(ui.PlayerList->rowCount() - 1, uIP, 1);
 	}
+
 }
 
 void MCServerHelper::PlayerLosted(QString uName, QString reason)
@@ -300,8 +331,41 @@ void MCServerHelper::PlayerLosted(QString uName, QString reason)
 		{
 			ui.PlayerList->item(i, 0)->setTextColor(QColor("black"));
 			ui.PlayerList->item(i, 3)->setText(ui.labSysTime->text());
+			int id = pi->getPlayerInfoIndex(uName);
+			pi->pPlayer[id].LastLost = ui.PlayerList->item(i, 3)->text();
 		}
 	}
+}
+
+void MCServerHelper::WelcomeNote(int index, QString uIP, int isFirst)
+{
+	char* cmd;
+	QByteArray tmp = ("/w " + ui.PlayerList->item(index, 0)->text() + " \"[WelcomeNote]\"\n").toLocal8Bit();
+	int id = pi->getPlayerInfoIndex(ui.PlayerList->item(index, 0)->text(), ui.PlayerList->item(index, 1)->text());
+	if (id < 0) return;
+	if (isFirst)
+	{
+		tmp.replace("[WelcomeNote]", ui.WelcomeNote1->toPlainText().toLocal8Bit());
+	}
+	else
+	{
+		tmp.replace("[WelcomeNote]", ui.WelcomeNote2->toPlainText().toLocal8Bit());
+	}
+	tmp.replace("%Times%", QString::number(pi->pPlayer[id].Times).toLocal8Bit());
+	tmp.replace("%LastLogin%", pi->pPlayer[id].LastLogin.toLocal8Bit());
+	tmp.replace("%LastIP%", pi->pPlayer[id].LastIP.toLocal8Bit());
+	tmp.replace("%ServerName%", ui.ServerName->text().toLocal8Bit());
+	tmp.replace("%LastLost%", pi->pPlayer[id].LastLost.toLocal8Bit());
+	tmp.replace("%PlayerName%", pi->pPlayer[id].ID.toLocal8Bit());
+	tmp.replace("%ThisIP%", uIP.toLocal8Bit());
+	cmd = tmp.data();
+	m_server->write(cmd);
+	tmp = ("/title " + ui.PlayerList->item(index, 0)->text() + " title \"Welcome " + ui.PlayerList->item(index, 0)->text() + "!\" \n").toLocal8Bit();
+	cmd = tmp.data();
+	m_server->write(cmd);
+	tmp = ("/title " + ui.PlayerList->item(index, 0)->text() + " subtitle \"" + ui.ServerName->text() + "\" \n").toLocal8Bit();
+	cmd = tmp.data();
+	m_server->write(cmd);
 }
 
 void MCServerHelper::onFrpOutput()
@@ -322,7 +386,7 @@ void MCServerHelper::ServerStart()
 void MCServerHelper::ServerInput()
 {
 	char* cmd;
-	QByteArray tmp = ui.ServerInput->text().toLatin1() + "\n";
+	QByteArray tmp = ui.ServerInput->text().toLocal8Bit() + "\n";
 	cmd = tmp.data();
 	qDebug() << cmd;
 	ui.OutServer->append(">" + ui.ServerInput->text());
@@ -339,6 +403,7 @@ void MCServerHelper::ServerStop()
 	ui.OutServer->append(">stop");
 	ui.OutServer->update();
 	m_server->write("stop\n");
+	PlayerInfo4Table();
 }
 
 void MCServerHelper::FrpStart()
@@ -359,31 +424,38 @@ void MCServerHelper::FrpStop()
 	ui.OutFrp->update();
 }
 
-void MCServerHelper::MSCHConfirm()
+void MCServerHelper::MCSHConfirm()
 {
 	if (ui.PathJava->text() == "") ui.PathJava->setText("NULL");
 	if (ui.PathServer->text() == "") ui.PathServer->setText("NULL");
 	if (ui.PathFrp->text() == "") ui.PathFrp->setText("NULL");
 	if (ui.PathFrpIni->text() == "") ui.PathFrpIni->setText("NULL");
+	if (ui.ServerName->text() == "") ui.ServerName->setText("NULL");
+	if (ui.WelcomeNote1->toPlainText() == "") ui.WelcomeNote1->setPlainText("NULL");
+	if (ui.WelcomeNote2->toPlainText() == "") ui.WelcomeNote2->setPlainText("NULL");
 	ie->myini.isStartWithWindow = ui.chkStartWithWindows->isChecked();
 	ie->myini.isStartServerOnceStarted = ui.chkStartServerOnce->isChecked();
 	ie->myini.isStartFrpWithServer = ui.chkStartFrpOnce->isChecked();
+	ie->myini.isOpenedWelcomeNode = ui.chkWelcomNote->isChecked();
 	if (ui.radChinese->isChecked())
 		ie->myini.Language = "zh_cn";
 	else
 		ie->myini.Language = "en_us";
 	ie->myini.JavaPath = ui.PathJava->text().replace(" ", "&nbsp;").toStdString();
+	ie->myini.ServerName = ui.ServerName->text().replace(" ", "&nbsp;").toStdString();
+	ie->myini.Welcome1 = ui.WelcomeNote1->toPlainText().replace("\n", " ").replace(" ", "&nbsp;").toStdString();
+	ie->myini.Welcome2 = ui.WelcomeNote2->toPlainText().replace("\n", " ").replace(" ", "&nbsp;").toStdString();
 	ie->myini.MinMemory = ui.MinRam->text().toInt();
 	ie->myini.MaxMemory = ui.MaxRam->text().toInt();
 	ie->myini.ServerPath = ui.PathServer->text().replace(" ", "&nbsp;").toStdString();
 	ie->myini.FrpPath = ui.PathFrp->text().replace(" ", "&nbsp;").toStdString();
 	ie->myini.FrpINIPath = ui.PathFrpIni->text().replace(" ", "&nbsp;").toStdString();
 	ie->WriteMyINI();
-	UpdateSettings();
 	ChangeLanguage();
+	UpdateSettings();
 }
 
-void MCServerHelper::MSCHCancel()
+void MCServerHelper::MCSHCancel()
 {
 	UpdateSettings();
 }
@@ -392,6 +464,7 @@ void MCServerHelper::ServerINIConfirm()
 {
 	ie->myini.ServerINI = ui.INIServer->toPlainText().toStdString();
 	ie->WriteServerINI();
+	MCSHConfirm();
 }
 
 void MCServerHelper::ServerINICancel()
@@ -476,6 +549,15 @@ void MCServerHelper::tabChanged(int tabid)
 	else
 	{
 		ui.frmUpdateInfo->hide();
+	}
+	if (tabid == 3 || tabid == 0)
+	{
+		if (ui.WelcomeNote1->toPlainText() == "Default")
+			//ui.WelcomeNote1->setPlainText(ui.labW1->text());
+			ui.WelcomeNote1->setPlainText("Hi, %PlayerName%! Welcome to our Server: %ServerName%.Your IP is %ThisIP%. Have a good Time.");
+		if (ui.WelcomeNote2->toPlainText() == "Default")
+			//ui.WelcomeNote2->setPlainText(ui.labW2->text());
+			ui.WelcomeNote2->setPlainText("Hi, %PlayerName%! This is your %Times% times to login in to our Server: %ServerName%. Your Last Lost Time is \"%LastLost%\", the IP is %LastIP%, this time is %ThisIP%. Have a good Time.");
 	}
 }
 

@@ -79,13 +79,14 @@ struct PlayerHistory
 {
 	string uuid = "";
 	string name = "";
+	int times = 0;
 	string firstlogin = "";
 	string lastlogin = "";
 	string lastlost = "";
 	string lastip = "";
 	friend ostream& operator<<(ostream& out, const PlayerHistory& obj)
 	{
-		out << "{\"uuid\":\"" << obj.uuid << "\",\"name\":\"" << obj.name << "\",\"firstlogin\":\"" << obj.firstlogin << "\",\"lastlogin\":\"" << obj.lastlogin << "\",\"lastlost\":\"" << obj.lastlost << "\",\"lastip\":\"" << obj.lastip << "\"}";
+		out << "{\"uuid\":\"" << obj.uuid << "\",\"name\":\"" << obj.name << "\",\"times\":" << obj.times << ",\"firstlogin\":\"" << obj.firstlogin << "\",\"lastlogin\":\"" << obj.lastlogin << "\",\"lastlost\":\"" << obj.lastlost << "\",\"lastip\":\"" << obj.lastip << "\"}";
 		return out;
 	}
 };
@@ -98,8 +99,9 @@ struct Player
 	bool isWhitelist = false;
 	bool isBanned = false;
 	int OPLevel = 0;
-	QString FirstLogin = "";
-	QString LastIP = "";
+	int Times = 0;
+	QString FirstLogin = "-";
+	QString LastIP = "-";
 	QString LastLogin = "-";
 	QString LastLost = "-";
 };
@@ -122,7 +124,7 @@ public:
 	int WriteJson(const int& num, const T* pInfo, const string filePath);
 	int toPlayer();
 	int fromPlayer();
-	int getPlayerInfoIndex(QString name, QString uuid);
+	int getPlayerInfoIndex(QString name, QString uuid = "NULL");
 	void storePlayerHistory(Player* p, int num);
 
 	int numUserCache = 0;

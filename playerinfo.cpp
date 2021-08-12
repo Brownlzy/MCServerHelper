@@ -34,6 +34,7 @@ void from_json(const json& j, PlayerHistory& p)
 {
 	j.at("name").get_to(p.name);
 	j.at("uuid").get_to(p.uuid);
+	j.at("times").get_to(p.times);
 	j.at("firstlogin").get_to(p.firstlogin);
 	j.at("lastlogin").get_to(p.lastlogin);
 	j.at("lastlost").get_to(p.lastlost);
@@ -315,6 +316,7 @@ int PlayerInfo::toPlayer()
 			{
 				pPlayer[j].UUID = QString::fromStdString(pPlayerHistory[i].uuid);
 				pPlayer[j].ID = QString::fromStdString(pPlayerHistory[i].name);
+				pPlayer[j].Times = pPlayerHistory[i].times + 1;
 				pPlayer[j].FirstLogin = QString::fromStdString(pPlayerHistory[i].firstlogin);
 				pPlayer[j].LastLogin = QString::fromStdString(pPlayerHistory[i].lastlogin);
 				pPlayer[j].LastLost = QString::fromStdString(pPlayerHistory[i].lastlost);
@@ -323,6 +325,7 @@ int PlayerInfo::toPlayer()
 			}
 			else if (pPlayer[j].UUID == QString::fromStdString(pPlayerHistory[i].uuid))
 			{
+				pPlayer[j].Times = pPlayerHistory[i].times + 1;
 				pPlayer[j].FirstLogin = QString::fromStdString(pPlayerHistory[i].firstlogin);
 				pPlayer[j].LastLogin = QString::fromStdString(pPlayerHistory[i].lastlogin);
 				pPlayer[j].LastLost = QString::fromStdString(pPlayerHistory[i].lastlost);
@@ -338,8 +341,16 @@ int PlayerInfo::getPlayerInfoIndex(QString name, QString uuid)
 {
 	for (int i = 0; i < numPlayer; i++)
 	{
-		if (pPlayer[i].ID == name && pPlayer[i].UUID == uuid)
-			return i;
+		if (uuid != "NULL")
+		{
+			if (pPlayer[i].ID == name && pPlayer[i].UUID == uuid)
+				return i;
+		}
+		else
+		{
+			if (pPlayer[i].ID == name)
+				return i;
+		}
 	}
 	return -1;
 }
@@ -352,6 +363,7 @@ void PlayerInfo::storePlayerHistory(Player* p, int num)
 	{
 		pPlayerHistory[i].name = p[i].ID.toStdString();
 		pPlayerHistory[i].uuid = p[i].UUID.toStdString();
+		pPlayerHistory[i].times = p[i].Times;
 		pPlayerHistory[i].firstlogin = p[i].FirstLogin.toStdString();
 		pPlayerHistory[i].lastlogin = p[i].LastLogin.toStdString();
 		pPlayerHistory[i].lastlost = p[i].LastLost.toStdString();

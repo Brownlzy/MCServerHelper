@@ -32,8 +32,16 @@ int iniEdit::ReadMyINI()
 				fin >> str_tmp >> myini.isStartServerOnceStarted;
 			else if ("isStartFrpWithServer" == str_tmp)
 				fin >> str_tmp >> myini.isStartFrpWithServer;
+			else if ("isOpenedWelcomeNode" == str_tmp)
+				fin >> str_tmp >> myini.isOpenedWelcomeNode;
 			else if ("Language" == str_tmp)
 				fin >> str_tmp >> myini.Language;
+			else if ("ServerName" == str_tmp)
+				fin >> str_tmp >> myini.ServerName;
+			else if ("Welcome1" == str_tmp)
+				fin >> str_tmp >> myini.Welcome1;
+			else if ("Welcome2" == str_tmp)
+				fin >> str_tmp >> myini.Welcome2;
 			else if ("JavaPath" == str_tmp)
 				fin >> str_tmp >> myini.JavaPath;
 			else if ("MinMemory" == str_tmp)
@@ -68,8 +76,16 @@ QString iniEdit::ReadMyINI(QString sName)
 		return myini.isStartServerOnceStarted;
 	else if ("isStartFrpWithServer" == sName)
 		return myini.isStartFrpWithServer;
+	else if ("isOpenedWelcomeNode" == sName)
+		return myini.isOpenedWelcomeNode;
 	else if ("Language" == sName)
 		return QString::fromStdString(myini.Language);
+	else if ("ServerName" == sName)
+		return QString::fromStdString(myini.ServerName);
+	else if ("Welcome1" == sName)
+		return QString::fromStdString(myini.Welcome1);
+	else if ("Welcome2" == sName)
+		return QString::fromStdString(myini.Welcome2);
 	else if ("JavaPath" == sName)
 		return QString::fromStdString(myini.JavaPath);
 	else if ("MinMemory" == sName)
@@ -134,7 +150,11 @@ int iniEdit::WriteMyINI()
 	fout << "isStartWithWindows = " << myini.isStartWithWindow << endl;
 	fout << "isStartServerOnceStarted = " << myini.isStartServerOnceStarted << endl;
 	fout << "isStartFrpWithServer = " << myini.isStartFrpWithServer << endl;
+	fout << "isOpenedWelcomeNode = " << myini.isOpenedWelcomeNode << endl;
 	fout << "Language = " << myini.Language << endl;
+	fout << "ServerName = " << myini.ServerName << endl;
+	fout << "Welcome1 = " << myini.Welcome1 << endl;
+	fout << "Welcome2 = " << myini.Welcome2 << endl;
 	fout << "JavaPath = " << myini.JavaPath << endl;
 	fout << "MinMemory = " << myini.MinMemory << endl;
 	fout << "MaxMemory = " << myini.MaxMemory << endl;
