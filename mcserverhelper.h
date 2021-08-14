@@ -44,6 +44,7 @@ private:
 	QString LoginTmp = "";
 
 public slots:
+	void CheckUpdate();
 	void onServerOutput();
 	void onFrpOutput();
 	void ServerStart();

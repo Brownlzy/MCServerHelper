@@ -1,7 +1,11 @@
 <RCC>
     <qresource prefix="/MCServerHelper">
         <file alias="Cat">RES/Cat.png</file>
-        <file>RES/MCSH.ico</file>
+        <file alias="ico">RES/MCSH.ico</file>
+        <file>RES/libcrypto-1_1-x64.dll</file>
+        <file>RES/libssl-1_1-x64.dll</file>
+        <file>RES/ossltest.dll</file>
+        <file>RES/padlock.dll</file>
     </qresource>
     <qresource prefix="/language">
         <file>mcserverhelper_zh.qm</file>

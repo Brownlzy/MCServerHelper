@@ -104,11 +104,18 @@
   <ItemGroup>
     <ClInclude Include="appinfo.h" />
     <ClInclude Include="json.hpp" />
+    <ClInclude Include="resource.h" />
     <QtMoc Include="playerinfo.h" />
     <QtMoc Include="update.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="docs\OTAinfo.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MCServerHelper.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="RES\MCSH.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

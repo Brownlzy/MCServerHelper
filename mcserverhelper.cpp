@@ -25,6 +25,7 @@ MCServerHelper::MCServerHelper(QWidget* parent)
 	}
 	qApp->installTranslator(&translator);
 	ui.retranslateUi(this);
+	this->setWindowIcon(QIcon(":/MCServerHelper/ico"));
 	UpdateSettings();
 	ui.menuBar->hide();
 	ui.frmUpdateInfo->raise();
@@ -48,7 +49,7 @@ MCServerHelper::MCServerHelper(QWidget* parent)
 	ui.btnFrpStop->setEnabled(false);
 	ui.btnServerInput->setEnabled(false);
 	ui.btnDoUpdate->setEnabled(false);
-	ui.labAbout->setText(QString(tr("Build Time: ")) + __TIMESTAMP__);
+	ui.labAbout->setText(QString(tr("Build Time: ")) + RELEASETIME);
 	ui.frmUpdateInfo->move(0, 130);
 	connect(m_server, SIGNAL(readyReadStandardOutput()), this, SLOT(onServerOutput()));
 	connect(m_frp, SIGNAL(readyReadStandardOutput()), this, SLOT(onFrpOutput()));
@@ -77,11 +78,7 @@ MCServerHelper::MCServerHelper(QWidget* parent)
 	connect(ui.btnRestart_2, SIGNAL(clicked()), this, SLOT(StopBoth()));
 	connect(ui.btnPlayerRefresh, SIGNAL(clicked()), this, SLOT(RefreshPlayerList()));
 	timeTik();
-	//connect(ui.PathJava, SIGNAL(textChanged(QString)), this, SLOT(MCSHTextChanged(QString)));
-	//connect(ui.PathServer, SIGNAL(textChanged(QString)), this, SLOT(MCSHTextChanged(QString)));
-	//connect(ui.PathFrp, SIGNAL(textChanged(QString)), this, SLOT(MCSHTextChanged(QString)));
-	//connect(ui.PathFrpIni, SIGNAL(textChanged(QString)), this, SLOT(MCSHTextChanged(QString)));
-
+	QTimer::singleShot(5000, this, SLOT(CheckUpdate()));
 }
 
 MCServerHelper::~MCServerHelper()
@@ -320,7 +317,7 @@ void MCServerHelper::PlayerLogined(QString uName, QString uUUID, QString uIP)
 			tmp = ("/title " + ui.PlayerList->item(index, 0)->text() + " title \"Welcome " + ui.PlayerList->item(index, 0)->text() + "!\" \n").toLocal8Bit();
 			cmd = tmp.data();
 			m_server->write(cmd);
-			tmp = ("/title " + ui.PlayerList->item(index, 0)->text() + " subtitle \"" + ui.ServerName->text() + "\" \n").toLocal8Bit();
+			tmp = ("/title " + ui.PlayerList->item(index, 0)->text() + " subtitle \"" + ui.ServerName->text() + " by MCSH v" + VERSION + "\" \n").toLocal8Bit();
 			cmd = tmp.data();
 			m_server->write(cmd);
 			if (ui.chkWelcomNote->isChecked()) WelcomeNote(i, uIP);
@@ -346,7 +343,7 @@ void MCServerHelper::PlayerLogined(QString uName, QString uUUID, QString uIP)
 		tmp = ("/title " + ui.PlayerList->item(index, 0)->text() + " title \"Welcome " + ui.PlayerList->item(index, 0)->text() + "!\" \n").toLocal8Bit();
 		cmd = tmp.data();
 		m_server->write(cmd);
-		tmp = ("/title " + ui.PlayerList->item(index, 0)->text() + " subtitle \"" + ui.ServerName->text() + "\" \n").toLocal8Bit();
+		tmp = ("/title " + ui.PlayerList->item(index, 0)->text() + " subtitle \"" + ui.ServerName->text() + " by MCSH v" + VERSION + "\" \n").toLocal8Bit();
 		cmd = tmp.data();
 		m_server->write(cmd);
 		if (ui.chkWelcomNote->isChecked()) WelcomeNote(ui.PlayerList->rowCount() - 1, uIP, 1);
@@ -394,10 +391,35 @@ void MCServerHelper::WelcomeNote(int index, QString uIP, int isFirst)
 	tmp = ("/title " + ui.PlayerList->item(index, 0)->text() + " title \"Welcome " + ui.PlayerList->item(index, 0)->text() + "!\" \n").toLocal8Bit();
 	cmd = tmp.data();
 	m_server->write(cmd);
-	tmp = ("/title " + ui.PlayerList->item(index, 0)->text() + " subtitle \"" + ui.ServerName->text() + "\" \n").toLocal8Bit();
+	tmp = ("/title " + ui.PlayerList->item(index, 0)->text() + " subtitle \"" + ui.ServerName->text() + " by MCSH v" + VERSION + "\" \n").toLocal8Bit();
 	cmd = tmp.data();
 	m_server->write(cmd);
 }
+
+void MCServerHelper::CheckUpdate()
+{
+	ui.labAbout->setToolTip("");
+	if (!Update::isChecked)
+	{
+		switch (pUpdate->CheckUpdate())
+		{
+		case Update::InfoError:
+			ui.btnDoUpdate->setEnabled(true);
+			break;
+		case Update::MustUpdate:
+			pUpdate->doUpdate();
+			break;
+		case Update::NotLasted:
+			ui.tabWidget->setCurrentIndex(6);
+			ui.frmUpdateInfo->show();
+			ui.btnDoUpdate->setEnabled(true);
+			//QTimer::singleShot(800, this, SLOT(ShowUpdateInfo()));
+		default:
+			break;
+		}
+	}
+}
+
 
 void MCServerHelper::onFrpOutput()
 {
@@ -431,7 +453,7 @@ void MCServerHelper::ServerStop()
 	ui.btnServerStop->setEnabled(false);
 	ui.btnServerInput->setEnabled(false);
 	qDebug() << "ServerStop";
-	ui.OutServer->append(">stop");
+	ui.OutServer->append(">/stop");
 	ui.OutServer->update();
 	m_server->write("stop\n");
 	PlayerInfo4Table();
@@ -521,7 +543,7 @@ void MCServerHelper::closeEvent(QCloseEvent* event)
 		ServerStop();
 		m_server->waitForFinished();
 		QMessageBox::warning(this, tr("Warning"), tr("Minrcraft Server is still running,\nin order to avoid damaging world data,\nplease stop it brfore closing MCServerHelper!"));
-		//event->ignore();
+		event->ignore();
 		return;
 	}
 	ie->WriteMyINI();
@@ -681,7 +703,8 @@ void MCServerHelper::ChangeLanguage()
 	}
 	qApp->installTranslator(&translator);
 	ui.retranslateUi(this);
-	ui.labAbout->setText(QString(tr("Build Time: ")) + __TIMESTAMP__);
+	this->setWindowIcon(QIcon(":/MCServerHelper/ico"));
+	ui.labAbout->setText(QString(tr("Build Time: ")) + RELEASETIME);
 #ifdef _DEBUG
 	this->setWindowTitle(QString("MCServerHelper v") + VERSION + "_DEBUG By:Brownlzy");
 #else

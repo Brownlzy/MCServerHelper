@@ -50,7 +50,7 @@ int Update::CheckUpdate()
 			if (info.split("<")[2].toInt() <= VERSIONID)
 			{
 				isLatest = true;
-				pLab->setText(QString("Build Time: ") + __TIMESTAMP__);
+				pLab->setText(QString("Build Time: ") + RELEASETIME);
 				pBar->setMaximum(100);
 				pBar->setValue(100);
 				qDebug() << "Update::Done";
@@ -72,7 +72,7 @@ int Update::CheckUpdate()
 	else
 	{
 		isError = true;
-		pLab->setText(QString(tr("Build Time: ")) + __TIMESTAMP__);
+		pLab->setText(QString(tr("Build Time: ")) + RELEASETIME);
 		pBar->setMaximum(100);
 		pBar->setValue(100);
 		pTxt->setPlainText(tr("T_T Nothing in here..."));
