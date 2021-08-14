@@ -30,7 +30,12 @@ MCServerHelper::MCServerHelper(QWidget* parent)
 	ui.frmUpdateInfo->raise();
 	ui.frmUpdateInfo->hide();
 	this->setFixedSize(this->width(), this->height());
+#ifdef _DEBUG
+	this->setWindowTitle(QString("MCServerHelper v") + VERSION + "_DEBUG By:Brownlzy");
+#else
+	ui.labDebug->hide();
 	this->setWindowTitle(QString("MCServerHelper v") + VERSION + " By:Brownlzy");
+#endif
 	m_server = new QProcess(this);
 	m_frp = new QProcess(this);
 	pUpdateFrm = new QPropertyAnimation(ui.frmUpdateInfo, "pos", this);
@@ -63,7 +68,15 @@ MCServerHelper::MCServerHelper(QWidget* parent)
 	connect(ui.btnDoUpdate, SIGNAL(clicked()), this, SLOT(btnDoUpdate()));
 	connect(ui.btnChangeLanguage, SIGNAL(clicked()), this, SLOT(ChangeLanguage()));
 	connect(ui.btnCommand, SIGNAL(clicked()), this, SLOT(MenuCommand()));
-	QTimer::singleShot(1000, this, SLOT(timeTik()));
+	connect(ui.btnServerRestart, SIGNAL(clicked()), this, SLOT(RestartServer()));
+	connect(ui.btnServerRestart_2, SIGNAL(clicked()), this, SLOT(RestartServer()));
+	connect(ui.btnFrpRestart, SIGNAL(clicked()), this, SLOT(RestartFrp()));
+	connect(ui.btnRestart, SIGNAL(clicked()), this, SLOT(RestartBoth()));
+	connect(ui.btnRestart_2, SIGNAL(clicked()), this, SLOT(RestartBoth()));
+	connect(ui.btnRestart, SIGNAL(clicked()), this, SLOT(StopBoth()));
+	connect(ui.btnRestart_2, SIGNAL(clicked()), this, SLOT(StopBoth()));
+	connect(ui.btnPlayerRefresh, SIGNAL(clicked()), this, SLOT(RefreshPlayerList()));
+	timeTik();
 	//connect(ui.PathJava, SIGNAL(textChanged(QString)), this, SLOT(MCSHTextChanged(QString)));
 	//connect(ui.PathServer, SIGNAL(textChanged(QString)), this, SLOT(MCSHTextChanged(QString)));
 	//connect(ui.PathFrp, SIGNAL(textChanged(QString)), this, SLOT(MCSHTextChanged(QString)));
@@ -124,6 +137,15 @@ void MCServerHelper::UpdateSettings()
 
 void MCServerHelper::startServer()
 {
+	QFileInfo file(qApp->applicationDirPath() + "/Server/" + QString::fromStdString(ie->myini.ServerPath).replace("&nbsp;", " "));
+	if (file.exists() == false)
+	{
+		ui.OutServer->append("<span style=\"color:red;\">未找到文件:\"" + qApp->applicationDirPath() + "/Server/" + QString::fromStdString(ie->myini.ServerPath).replace("&nbsp;", " ") + "\"</span>");
+		ui.OutServer->update();
+		ui.btnServerStart->setEnabled(true);
+		ui.btnServerStop->setEnabled(false);
+		return;
+	}
 	QStringList Par;
 	Par << "-Xmx" + QString::number(ie->myini.MaxMemory) + "M" << "-Xms" + QString::number(ie->myini.MinMemory) + "M" << "-jar" << QString::fromStdString(ie->myini.ServerPath) << "nogui";
 	ui.OutServer->append(">\"" + QString::fromStdString(ie->myini.JavaPath).replace("&nbsp;", " ") + "\" -Xmx" + QString::number(ie->myini.MaxMemory) + "M " + "-Xms" + QString::number(ie->myini.MinMemory) + "M -jar " + QString::fromStdString(ie->myini.ServerPath) + " nogui");
@@ -138,6 +160,15 @@ void MCServerHelper::startServer()
 
 void MCServerHelper::startFrp()
 {
+	QFileInfo file(qApp->applicationDirPath() + "/FRP/" + QString::fromStdString(ie->myini.FrpPath).replace("&nbsp;", " "));
+	if (file.exists() == false)
+	{
+		ui.OutFrp->append("<span style=\"color:red;\">未找到文件:\"" + qApp->applicationDirPath() + "/FRP/" + QString::fromStdString(ie->myini.FrpPath).replace("&nbsp;", " ") + "\"</span>");
+		ui.OutFrp->update();
+		ui.btnFrpStart->setEnabled(true);
+		ui.btnFrpStop->setEnabled(false);
+		return;
+	}
 	QStringList Par;
 	Par << "-c" << QString::fromStdString(ie->myini.FrpINIPath).replace("&nbsp;", " ");
 	ui.OutFrp->append(">" + qApp->applicationDirPath() + "/FRP/" + QString::fromStdString(ie->myini.FrpPath).replace("&nbsp;", " ") + " -c " + QString::fromStdString(ie->myini.FrpINIPath));
@@ -503,6 +534,38 @@ void MCServerHelper::timeTik()
 {
 	ui.labSysTime->setText(QDateTime::currentDateTime().toString("yy/MM/dd hh:mm:ss"));
 	QTimer::singleShot(1000, this, SLOT(timeTik()));
+	if (m_frp->state() == QProcess::NotRunning)
+	{
+		ui.btnFrpStart->setEnabled(true);
+		ui.btnFrpStop->setEnabled(false);
+		ui.btnFrpRestart->setEnabled(false);
+		ui.btnRestart->setEnabled(false);
+		ui.btnRestart_2->setEnabled(false);
+	}
+	else if (m_frp->state() == QProcess::Running)
+	{
+		ui.btnFrpRestart->setEnabled(true);
+	}
+	if (m_server->state() == QProcess::NotRunning)
+	{
+		ui.btnServerStart->setEnabled(true);
+		ui.btnServerStop->setEnabled(false);
+		ui.btnServerInput->setEnabled(false);
+		ui.btnServerRestart->setEnabled(false);
+		ui.btnServerRestart_2->setEnabled(false);
+		ui.btnRestart->setEnabled(false);
+		ui.btnRestart_2->setEnabled(false);
+	}
+	else if (ui.btnServerStop->isEnabled() && m_server->state() == QProcess::Running)
+	{
+		ui.btnServerRestart->setEnabled(true);
+		ui.btnServerRestart_2->setEnabled(true);
+	}
+	if (ui.btnServerStop->isEnabled() && m_server->state() == QProcess::Running && m_frp->state() == QProcess::Running)
+	{
+		ui.btnRestart->setEnabled(true);
+		ui.btnRestart_2->setEnabled(true);
+	}
 }
 
 void MCServerHelper::tabChanged(int tabid)
@@ -619,7 +682,11 @@ void MCServerHelper::ChangeLanguage()
 	qApp->installTranslator(&translator);
 	ui.retranslateUi(this);
 	ui.labAbout->setText(QString(tr("Build Time: ")) + __TIMESTAMP__);
+#ifdef _DEBUG
+	this->setWindowTitle(QString("MCServerHelper v") + VERSION + "_DEBUG By:Brownlzy");
+#else
 	this->setWindowTitle(QString("MCServerHelper v") + VERSION + " By:Brownlzy");
+#endif
 }
 
 void MCServerHelper::MenuCommand()
@@ -627,4 +694,54 @@ void MCServerHelper::MenuCommand()
 	QMenu* popMenu = ui.menuCommand;//new QMenu(this);//定义一个右键弹出菜单
 	//popMenu->addMenu(ui.menuCommand);
 	popMenu->exec(QCursor::pos());//弹出右键菜单，菜单位置为光标位置
+}
+
+void MCServerHelper::RestartServer()
+{
+	if (m_server->state() == QProcess::Running && ui.ServerInput->isEnabled())
+	{
+		ServerStop();
+		QEventLoop loop;
+		QTimer::singleShot(5000, &loop, SLOT(quit()));
+		loop.exec();
+		if (ui.btnServerStart->isEnabled())ServerStart();
+	}
+}
+
+void MCServerHelper::RestartFrp()
+{
+	if (ui.btnFrpStop->isEnabled())
+	{
+		FrpStop();
+	}
+	QEventLoop loop;
+	QTimer::singleShot(3000, &loop, SLOT(quit()));
+	loop.exec();
+	FrpStart();
+}
+
+void MCServerHelper::RestartBoth()
+{
+	RestartFrp();
+	RestartServer();
+}
+
+void MCServerHelper::StopBoth()
+{
+	if (ui.btnFrpStop->isEnabled())
+	{
+		FrpStop();
+	}
+	if (ui.ServerInput->isEnabled() && m_server->state() == QProcess::Running)
+	{
+		ServerStop();
+	}
+}
+
+void MCServerHelper::RefreshPlayerList()
+{
+	PlayerInfo4Table();
+	pi->ReadPlayerInfo();
+	//pi->WritePlayerInfo();
+	PlayerInfo2Table();
 }

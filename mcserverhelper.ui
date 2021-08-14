@@ -138,6 +138,45 @@
        <string>/</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="btnRestart_2">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>340</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>RestartAll</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnServerRestart">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>340</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Restart</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnStop_2">
+      <property name="geometry">
+       <rect>
+        <x>487</x>
+        <y>340</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>StopAll</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tabFRP">
      <attribute name="title">
@@ -206,6 +245,45 @@
       </property>
       <property name="text">
        <string>FRP Console:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnStop">
+      <property name="geometry">
+       <rect>
+        <x>487</x>
+        <y>340</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>StopAll</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnFrpRestart">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>340</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Restart</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnRestart">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>340</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>RestartAll</string>
       </property>
      </widget>
     </widget>
@@ -334,6 +412,19 @@
        <string> YY/MM/DD hh:mm:ss</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="btnPlayerRefresh">
+      <property name="geometry">
+       <rect>
+        <x>487</x>
+        <y>340</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Refresh</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tabServerS">
      <attribute name="title">
@@ -371,7 +462,7 @@
      <widget class="QPushButton" name="btnServerSCancel">
       <property name="geometry">
        <rect>
-        <x>490</x>
+        <x>487</x>
         <y>340</y>
         <width>75</width>
         <height>23</height>
@@ -537,6 +628,19 @@
        <string>Hi, %PlayerName%! This is your %Times% times to login in to our Server: %ServerName%. Your Last Lost Time is &quot;%LastLost%&quot;, the IP is %LastIP%, this time is %ThisIP%. Have a good Time.</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="btnServerRestart_2">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>340</y>
+        <width>111</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Restart Server</string>
+      </property>
+     </widget>
      <zorder>labW1</zorder>
      <zorder>labW2</zorder>
      <zorder>btnServerSConfirm</zorder>
@@ -552,6 +656,7 @@
      <zorder>ServerName</zorder>
      <zorder>WelcomeNote1</zorder>
      <zorder>WelcomeNote2</zorder>
+     <zorder>btnServerRestart_2</zorder>
     </widget>
     <widget class="QWidget" name="tabFRPS">
      <attribute name="title">
@@ -599,7 +704,7 @@
      <widget class="QPushButton" name="btnFrpSCancel">
       <property name="geometry">
        <rect>
-        <x>490</x>
+        <x>487</x>
         <y>340</y>
         <width>75</width>
         <height>23</height>
@@ -997,7 +1102,7 @@
      <widget class="QPushButton" name="btnMCSHCancel">
       <property name="geometry">
        <rect>
-        <x>490</x>
+        <x>487</x>
         <y>340</y>
         <width>75</width>
         <height>23</height>
@@ -1399,6 +1504,25 @@
       <string>↑</string>
      </property>
     </widget>
+    <widget class="QLabel" name="labDebug">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>50</y>
+       <width>594</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 48pt &quot;Consolas&quot;;</string>
+     </property>
+     <property name="text">
+      <string>DEBUG</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
     <zorder>CatPic</zorder>
     <zorder>CatPic_2</zorder>
     <zorder>DownBar</zorder>
@@ -1406,6 +1530,7 @@
     <zorder>txtUpdateInfo</zorder>
     <zorder>btnShowUpdateInfo</zorder>
     <zorder>btnDoUpdate</zorder>
+    <zorder>labDebug</zorder>
    </widget>
    <zorder>frmUpdateInfo</zorder>
    <zorder>tabWidget</zorder>

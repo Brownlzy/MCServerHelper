@@ -64,4 +64,9 @@ public slots:
 	void btnDoUpdate();
 	void ChangeLanguage();
 	void MenuCommand();
+	void RestartServer();
+	void RestartFrp();
+	void RestartBoth();
+	void StopBoth();
+	void RefreshPlayerList();
 };
