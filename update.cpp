@@ -153,6 +153,10 @@ void Update::httpFinished()  //完成下载
 
 void Update::Updatefile()
 {
+#ifdef _DEBUG
+	qDebug() << strCRC32 << ":" << calcFileCRC(qApp->applicationDirPath() + "/MCSH.bin");
+#endif // _DEBUG
+
 	if (strCRC32 != calcFileCRC(qApp->applicationDirPath() + "/MCSH.bin"))
 	{
 		pBar->setMaximum(100);

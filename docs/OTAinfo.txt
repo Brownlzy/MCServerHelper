@@ -1,4 +1,4 @@
-MCSH_OTA_INFO!240<0.2.4<240<1<E3B3288F<4.47MB<https://Brownlzy.github.io/MCServerHelper/MCSHv[VERSION]_exe!========最新版本========
+MCSH_OTA_INFO!240<0.2.4<240<1<57ED6D74<4.47MB<https://Brownlzy.github.io/MCServerHelper/MCSHv[VERSION]_exe!========最新版本========
 Version 0.2.4
 1.增加玩家列表功能.
 Patch.1.增加进服欢迎提示(很遗憾,不支持中文)
